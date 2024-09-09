@@ -1,0 +1,63 @@
+{
+    "System": {
+        "Server": {
+            "create": {
+                "validate": {
+                    "uuid": [
+                        {
+                            "is.uuid": true
+                        }
+                    ],
+                    "#class": [
+                        {
+                            "is.unique": {
+                                "class": "System.Server",
+                                "attribute": [
+                                    "#class"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "put": {
+                "validate": {
+                    "uuid": [
+                        {
+                            "is.uuid": true
+                        }
+                    ],
+                    "#class": [
+                        {
+                            "is.unique": {
+                                "class": "System.Server",
+                                "attribute": [
+                                    "#class"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "patch": {
+                "validate": {
+                    "uuid": [
+                        {
+                            "is.uuid": true
+                        }
+                    ],
+                    "#class": [
+                        {
+                            "is.unique": {
+                                "class": "System.Server",
+                                "attribute": [
+                                    "#class"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,263 @@
+{
+  "name" : "ROLE_SYSTEM",
+  "rank" : 1,
+  "#class": "Account.Role",
+  "permission": [
+    {
+      "name": "System:Server:import",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:record",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:record.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:create",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:create.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:count",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:count.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:commit",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:read",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:read.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:put",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:put.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:patch",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:patch.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:page",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:page.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:property.delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:list",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:list.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:rename",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:public.create",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:import",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:record",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:record.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:create",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:create.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:count",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:count.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:commit",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:read",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:read.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:put",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:put.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:patch",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:patch.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:page",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:property.delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:page.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:list",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:list.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:rename",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Cors:delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:import",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:record",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:record.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:create",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:create.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:count",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:count.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:commit",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:read",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:read.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:put",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:put.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:patch",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:patch.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:page",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:page.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:property.delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:list",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:list.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:rename",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Url:delete",
+      "#class": "Account.Permission"
+    }
+  ]
+}

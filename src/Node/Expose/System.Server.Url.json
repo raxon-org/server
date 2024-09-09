@@ -1,0 +1,294 @@
+{
+    "System": {
+        "Server": {
+            "Url": {
+                "count": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                },
+                "list": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                },
+                "page": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                },
+                "read": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                },
+                "record": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                },
+                "create": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                },
+                "create_many": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                },
+                "put": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                },
+                "put_many": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                },
+                "patch": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                },
+                "patch_many": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "name",
+                                "options"
+                            ],
+                            "object": {
+                                "options": {
+                                    "multiple": false,
+                                    "output": [
+                                        "development",
+                                        "staging",
+                                        "production",
+                                        "test",
+                                        "replica"
+                                    ]
+                                }
+                            }
+
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

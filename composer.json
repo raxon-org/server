@@ -1,0 +1,15 @@
+{
+    "name" : "raxon/server",
+    "description" : "raxon/server see https://raxon.org for detailed usage",
+    "type" : "package",
+    "keywords" : ["node", "raxon", "org", "library", "framework", "server", "configuration", "raxon.org"],
+    "homepage": "https://raxon.org",
+    "require" : {
+        "raxon_org/framework": "*"
+    },
+    "license" : "MIT",
+    "authors" : [{
+        "name" : "Remco van der Velde",
+        "email" : "development@universeorange.com"
+    }]
+}

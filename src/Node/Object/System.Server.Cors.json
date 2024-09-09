@@ -1,0 +1,42 @@
+{
+    "Node": {
+        "#class": "System.Server.Cors",
+        "type": "object",
+        "property": [
+            {
+                "name": "header",
+                "type": "object",
+                "property": [
+                    {
+                        "name": "expose",
+                        "type": "array"
+                    },
+                    {
+                        "name": "allow",
+                        "type": "array"
+                    }
+                ],
+                "multiple": false
+            },
+            {
+                "name": "domain",
+                "type": "array"
+            },
+            {
+                "name": "allow_credential",
+                "type": "boolean"
+            },
+            {
+                "name": "max-age",
+                "type": "integer"
+            },
+            {
+                "name": "method",
+                "type": "array"
+            }
+        ]
+    },
+    "is.unique": [
+        "#class"
+    ]
+}

@@ -1,0 +1,512 @@
+{
+    "System": {
+        "Server": {
+            "count": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "page": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "list": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "read": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "record": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "create": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "create_many": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "put": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "put_many": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "patch": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "patch_many": {
+                "output": [
+                    {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                            "uuid",
+                            "#class",
+                            "admin",
+                            "email",
+                            "site",
+                            "http",
+                            "url",
+                            "cors",
+                            "directory_public",
+                            "public"
+                        ],
+                        "object": {
+                            "email": {
+                                "multiple": false,
+                                "output": [
+                                    "to",
+                                    "cc",
+                                    "bcc",
+                                    "replyTo"
+                                ]
+                            },
+                            "site": {
+                                "multiple": false,
+                                "output": [
+                                    "disabled"
+                                ]
+                            },
+                            "http": {
+                                "multiple": false,
+                                "output": [
+                                    "upgrade_insecure",
+                                    "cookie"
+                                ],
+                                "object": {
+                                    "cookie": []
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

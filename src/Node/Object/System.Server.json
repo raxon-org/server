@@ -1,0 +1,126 @@
+{
+    "Node": {
+        "#class": "System.Server",
+        "type": "object",
+        "property": [
+            {
+                "name": "admin",
+                "type": "string"
+            },
+            {
+                "name": "email",
+                "type": "object",
+                "property": [
+                    {
+                        "name": "to",
+                        "type": "array"
+                    },
+                    {
+                        "name": "cc",
+                        "type": "array"
+                    },
+                    {
+                        "name": "bcc",
+                        "type": "array"
+                    },
+                    {
+                        "name": "replyTo",
+                        "type": "array"
+                    }
+                ],
+                "multiple": false
+            },
+            {
+                "name": "site",
+                "type": "object",
+                "property": [
+                    {
+                        "name": "disabled",
+                        "type": "array"
+                    }
+                ],
+                "multiple": false
+            },
+            {
+                "name": "http",
+                "type": "object",
+                "property": [
+                    {
+                        "name": "upgrade_insecure",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "cookie",
+                        "type": "object",
+                        "property": [
+                            {
+                                "name": "path",
+                                "type": "string"
+                            },
+                            {
+                                "name": "domain",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "httponly",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "samesite",
+                                "type": "string"
+                            }
+                        ],
+                        "multiple": false
+                    }
+                ],
+                "multiple": false
+            },
+            {
+                "name": "url",
+                "type": "array",
+                "relation": true,
+                "is_multiple": true
+            },
+            {
+                "name": "cors",
+                "type": "uuid",
+                "relation": true,
+                "is_multiple": false
+            },
+            {
+                "name": "directory_public",
+                "type": "array"
+            },
+            {
+                "name": "public",
+                "type": "string"
+            }
+        ]
+    },
+    "is.unique": [
+        "#class"
+    ],
+    "relation": [
+        {
+            "type": "one-one",
+            "class": "System.Server.Cors",
+            "attribute": "cors"
+        },
+        {
+            "type": "one-many",
+            "class": "System.Server.Url",
+            "attribute": "url",
+            "sort": {
+                "name": "ASC"
+            },
+            "output": {
+                "filter": [
+                    "Raxon:Org:Output:Filter:System:Server:url"
+                ]
+            },
+            "where": "",
+            "filter": [],
+            "limit": "*"
+        }
+    ]
+}
