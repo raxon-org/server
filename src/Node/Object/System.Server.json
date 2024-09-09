@@ -115,7 +115,7 @@
             },
             "output": {
                 "filter": [
-                    "Raxon:Org:Output:Filter:System:Server:url"
+                    "Raxon:Output:Filter:System:Server:url"
                 ]
             },
             "where": "",
