@@ -1,12 +1,12 @@
 <?php
-namespace Package\Raxon\Org\Server\Trait;
+namespace Package\Raxon\Server\Trait;
 
-use Raxon\Org\App;
+use Raxon\App;
 
-use Raxon\Org\Module\Core;
-use Raxon\Org\Module\File;
+use Raxon\Module\Core;
+use Raxon\Module\File;
 
-use Raxon\Org\Node\Model\Node;
+use Raxon\Node\Model\Node;
 
 use Exception;
 trait Import {

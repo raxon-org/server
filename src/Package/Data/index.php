@@ -7,11 +7,11 @@
  *     -    all
  */
 
-use Raxon\Org\App;
-use Raxon\Org\Config;
+use Raxon\App;
+use Raxon\Config;
 
-use Raxon\Org\Exception\LocateException;
-use Raxon\Org\Exception\ObjectException;
+use Raxon\Exception\LocateException;
+use Raxon\Exception\ObjectException;
 
 $dir = __DIR__;
 $dir_vendor =
