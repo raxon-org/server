@@ -40,7 +40,15 @@
                                     "cookie"
                                 ],
                                 "object": {
-                                    "cookie": []
+                                    "cookie": {
+                                        "multiple" : false,
+                                        "output": [
+                                            "path",
+                                            "domain",
+                                            "httponly",
+                                            "samesite"
+                                        ]
+                                    }
                                 }
                             }
                         }
@@ -86,7 +94,15 @@
                                     "cookie"
                                 ],
                                 "object": {
-                                    "cookie": []
+                                    "cookie": {
+                                        "multiple" : false,
+                                        "output": [
+                                            "path",
+                                            "domain",
+                                            "httponly",
+                                            "samesite"
+                                        ]
+                                    }
                                 }
                             }
                         }
@@ -132,7 +148,15 @@
                                     "cookie"
                                 ],
                                 "object": {
-                                    "cookie": []
+                                    "cookie": {
+                                        "multiple" : false,
+                                        "output": [
+                                            "path",
+                                            "domain",
+                                            "httponly",
+                                            "samesite"
+                                        ]
+                                    }
                                 }
                             }
                         }
@@ -178,7 +202,15 @@
                                     "cookie"
                                 ],
                                 "object": {
-                                    "cookie": []
+                                    "cookie": {
+                                        "multiple" : false,
+                                        "output": [
+                                            "path",
+                                            "domain",
+                                            "httponly",
+                                            "samesite"
+                                        ]
+                                    }
                                 }
                             }
                         }
@@ -224,7 +256,15 @@
                                     "cookie"
                                 ],
                                 "object": {
-                                    "cookie": []
+                                    "cookie": {
+                                        "multiple" : false,
+                                        "output": [
+                                            "path",
+                                            "domain",
+                                            "httponly",
+                                            "samesite"
+                                        ]
+                                    }
                                 }
                             }
                         }
@@ -270,7 +310,15 @@
                                     "cookie"
                                 ],
                                 "object": {
-                                    "cookie": []
+                                    "cookie": {
+                                        "multiple" : false,
+                                        "output": [
+                                            "path",
+                                            "domain",
+                                            "httponly",
+                                            "samesite"
+                                        ]
+                                    }
                                 }
                             }
                         }
