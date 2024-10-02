@@ -246,7 +246,7 @@ class Cli extends Controller {
             if(array_key_exists(0, $explode) === false){
                 continue;
             }
-            $module = strtolower(File::basename($explode[0], $object->config('extension.tpl')));
+            $module = mb_strtolower(File::basename($explode[0], $object->config('extension.tpl')));
             $submodule = false;
             $temp = explode('.', $module, 2);
             if(array_key_exists(1, $temp)){
@@ -254,7 +254,7 @@ class Cli extends Controller {
                 $submodule = $temp[1];
             } else {
                 if(array_key_exists(1, $explode)){
-                    $submodule = strtolower(File::basename($explode[1], $object->config('extension.tpl')));
+                    $submodule = mb_strtolower(File::basename($explode[1], $object->config('extension.tpl')));
                     $temp = explode('.', $submodule, 2);
                     if(array_key_exists(1, $temp)){
                         $submodule = $temp[0];
@@ -267,7 +267,7 @@ class Cli extends Controller {
             $action = false;
             $subaction = false;
             if(array_key_exists(2, $explode)){
-                $command = strtolower(File::basename($explode[2], $object->config('extension.tpl')));
+                $command = mb_strtolower(File::basename($explode[2], $object->config('extension.tpl')));
                 $temp = explode('.', $command, 2);
                 if(array_key_exists(1, $temp)){
                     $command = $temp[0];
@@ -275,7 +275,7 @@ class Cli extends Controller {
                 }
             }
             if(array_key_exists(3, $explode) && $subcommand === false){
-                $subcommand = strtolower(File::basename($explode[3], $object->config('extension.tpl')));
+                $subcommand = mb_strtolower(File::basename($explode[3], $object->config('extension.tpl')));
                 $temp = explode('.', $subcommand, 2);
                 if(array_key_exists(1, $temp)){
                     $subcommand = $temp[0];
@@ -283,7 +283,7 @@ class Cli extends Controller {
                 }
             }
             if(array_key_exists(4, $explode) && $action === false){
-                $action = strtolower(File::basename($explode[4], $object->config('extension.tpl')));
+                $action = mb_strtolower(File::basename($explode[4], $object->config('extension.tpl')));
                 $temp = explode('.', $action, 2);
                 if(array_key_exists(1, $temp)){
                     $action = $temp[0];
@@ -291,7 +291,7 @@ class Cli extends Controller {
                 }
             }
             if(array_key_exists(5, $explode) && $subaction === false){
-                $subaction = strtolower(File::basename($explode[5], $object->config('extension.tpl')));
+                $subaction = mb_strtolower(File::basename($explode[5], $object->config('extension.tpl')));
             }
             if(
                 !in_array(
