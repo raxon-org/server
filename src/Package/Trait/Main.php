@@ -6,6 +6,7 @@ use Raxon\App;
 use Raxon\Config;
 use Raxon\Exception\ObjectException;
 use Raxon\Module\Core;
+use Raxon\Module\Data;
 use Raxon\Module\Dir;
 use Raxon\Module\Event;
 use Raxon\Module\File;
