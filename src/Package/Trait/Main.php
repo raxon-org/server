@@ -1,21 +1,17 @@
 <?php
 namespace Package\Raxon\Server\Trait;
 
+use Exception;
 use Raxon\App;
 use Raxon\Config;
-
+use Raxon\Exception\ObjectException;
 use Raxon\Module\Core;
 use Raxon\Module\Dir;
 use Raxon\Module\Event;
 use Raxon\Module\File;
-use Raxon\Module\Parse;
-
 use Raxon\Node\Module\Node;
-
-use Exception;
-
-use Raxon\Exception\ObjectException;
 use Raxon\Node\Service\Security;
+use Raxon\Parse\Module\Parse;
 
 trait Main {
 
@@ -75,9 +71,14 @@ trait Main {
         $source = $object->config('controller.dir.data') . '.user.ini';
         $destination = $options['public'] . '.user.ini';
         File::copy($source, $destination);
-        $parse = new Parse($object);
+        $data = new Data($object->data());
+        $flags = App::flags($object);
+        $parse_options = (object) [
+            'source' => $destination
+        ];
+        $parse = new Parse($object, $data, $flags, $parse_options);
         $read = File::read($destination);
-        $read = $parse->compile($read, $object->data());
+        $read = $parse->compile($read, $data);
         File::write($destination, $read);
         $source = $object->config('controller.dir.data') . 'index.php';
         $destination = $options['public'] . 'index.php';
