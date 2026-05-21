@@ -68,6 +68,8 @@ trait Main {
         Dir::create($destination, Dir::CHMOD);
         $source = $object->config('controller.dir.data') . '.htaccess';
         $destination = $options['public'] . '.htaccess';
+        $command = 'chmod +x ' . escapeshellarg($destination);
+        exec($command);
         File::copy($source, $destination);
         $source = $object->config('controller.dir.data') . '.user.ini';
         $destination = $options['public'] . '.user.ini';
@@ -247,6 +249,8 @@ trait Main {
             File::permission($object, [
                 'destination' => $destination,
             ]);
+            $command = 'chmod +x ' . escapeshellarg($destination);
+            exec($command);
         }
         $source = $object->config('controller.dir.data') . '.user.ini';
         $destination = $options['public'] . '.user.ini';
