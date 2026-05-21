@@ -185,6 +185,189 @@ trait Main {
         throw $exception;
     }
 
+    /**
+     * @throws ObjectException
+     * @throws Exception
+     */
+    public function restore($options): ?string
+    {
+        $object = $this->object();
+        $options = Core::object($options, Core::OBJECT_ARRAY);
+        $id = $object->config(Config::POSIX_ID);
+        if(
+            !in_array(
+                $id,
+                [
+                    0,
+                    33
+                ],
+                true
+            )
+        ){
+            $exception = new Exception('Only root and after that www-data can restore...');
+            Event::trigger($object, 'raxon.org.server.reset', [
+                'options' => $options,
+                'exception' => $exception
+            ]);
+            throw $exception;
+        }
+        $node = new Node($object);
+        $class = 'System.Server';
+        if (!array_key_exists('function', $options)) {
+            $options['function'] = __FUNCTION__;
+        }
+        $options['relation'] = false;
+        if (!Security::is_granted(
+            $class,
+            $node->role_system(),
+            $options
+        )) {
+            return false;
+        }
+        if(
+            !array_key_exists('public', $options) ||
+            empty($options['public'])
+        ){
+            $options['public'] = $object->config('project.dir.public');
+        }
+        if(strstr($options['public'], '/') === false){
+            $options['public'] = $object->config('project.dir.root') . $options['public'] . $object->config('ds');
+        }
+        $destination = $options['public'];
+        if(!Dir::exist($destination)){
+            Dir::create($destination, Dir::CHMOD);
+            File::permission($object, [
+                'destination' => $destination,
+            ]);
+        }
+        $source = $object->config('controller.dir.data') . '.htaccess';
+        $destination = $options['public'] . '.htaccess';
+        if(!File::exist($destination)){
+            File::copy($source, $destination);
+            File::permission($object, [
+                'destination' => $destination,
+            ]);
+        }
+        $source = $object->config('controller.dir.data') . '.user.ini';
+        $destination = $options['public'] . '.user.ini';
+        if(!File::exist($destination)) {
+            File::copy($source, $destination);
+            $data = new Data($object->data());
+            $flags = App::flags($object);
+            $parse_options = (object) [
+                'source' => $destination
+            ];
+            $parse = new Parse($object, $data, $flags, $parse_options);
+            $read = File::read($destination);
+            $read = $parse->compile($read, $data);
+            File::write($destination, $read);
+            File::permission($object, [
+                'destination' => $destination,
+            ]);
+        }
+        $source = $object->config('controller.dir.data') . 'index.php';
+        $destination = $options['public'] . 'index.php';
+        if(!File::exist($destination)){
+            File::copy($source, $destination);
+            File::permission($object, [
+                'destination' => $destination,
+            ]);
+        }
+        $response = $node->record($class, $node->role_system());
+        if(!$response){
+            $record = (object) [
+                'public' => $options['public'],
+                '#class' => $class
+            ];
+            $response = $node->create($class, $node->role_system(), $record);
+            $config = $this->system_config($node);
+            if(
+                $config &&
+                is_array($config) &&
+                array_key_exists('node', $config) &&
+                is_object($config['node']) &&
+                property_exists($config['node'], 'server') &&
+                !empty($config['node']->server) &&
+                $response &&
+                is_array($response) &&
+                array_key_exists('node', $response) &&
+                is_object($response['node']) &&
+                property_exists($response['node'], 'public') &&
+                !empty($response['node']->public) &&
+                Dir::is($response['node']->public)
+            ){
+                echo 'Server public directory (' . $response['node']->public .') configured (create)' . PHP_EOL;
+                Event::trigger($object, 'raxon.org.server.reset', [
+                    'options' => $options,
+                    'response' => $response
+                ]);
+                return null;
+            }
+        }
+        elseif(
+            is_array($response) &&
+            array_key_exists('node', $response) &&
+            is_object($response['node']) &&
+            property_exists($response['node'], 'uuid')
+        ){
+            $config = $this->system_config($node);
+            $record = (object) [
+                'uuid' => $response['node']->uuid,
+                'public' => $options['public'],
+                '#class' => $class
+            ];
+            if(
+                property_exists($response['node'], 'public') &&
+                !empty($response['node']->public) &&
+                Dir::is($response['node']->public) &&
+                $record->public !== $response['node']->public
+            ){
+                Dir::remove($response['node']->public);
+            }
+            $response = $node->patch($class, $node->role_system(), $record);
+            if(
+                $config &&
+                is_array($config) &&
+                array_key_exists('node', $config) &&
+                is_object($config['node']) &&
+                property_exists($config['node'], 'server') &&
+                !empty($config['node']->server) &&
+                $response &&
+                is_array($response) &&
+                array_key_exists('node', $response) &&
+                is_object($response['node']) &&
+                property_exists($response['node'], 'public') &&
+                !empty($response['node']->public) &&
+                Dir::is($response['node']->public)
+            ){
+                echo 'Server public directory (' . $response['node']->public .') configured (patch)' . PHP_EOL;
+                Event::trigger($object, 'raxon.org.server.reset', [
+                    'options' => $options,
+                    'response' => $response
+                ]);
+                return null;
+            }
+            if(
+                $response &&
+                is_array($response) &&
+                array_key_exists('error', $response)
+            ){
+                $result = Core::object($response, Core::OBJECT_JSON) . PHP_EOL;
+                Event::trigger($object, 'raxon.org.server.reset', [
+                    'options' => $options,
+                    'response' => $response
+                ]);
+                return $result;
+            }
+        }
+        $exception = new Exception('Server public directory (' . $options['public'] .') not configured...');
+        Event::trigger($object, 'raxon.org.server.reset', [
+            'options' => $options,
+            'exception' => $exception
+        ]);
+        throw $exception;
+    }
+
     public function system_config($node): ?array
     {
         $config = $node->record('System.Config', $node->role_system());
