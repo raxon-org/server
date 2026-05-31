@@ -152,9 +152,10 @@ trait Setup {
             $response = $node->patch($class, $node->role_system(), $record);
             //create extension list
             //create content type list
-
+            $extension_list = $this->extension_list_import_node($flags, $options);
+            echo 'Imported ' . count($extension_list) . ' extension nodes' . PHP_EOL;
             $extension_list = $this->extension_list_import_sqlite($flags, $options);
-            echo 'Imported ' . count($extension_list) . ' extensions' . PHP_EOL;
+            echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
             $content_type_list = $this->content_type_list_import_node($flags, $options);
             echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
             if(
@@ -441,45 +442,13 @@ trait Setup {
                 $record = $repository->findOneBy([
                     'name' => $extension,
                 ]);
-                ddd($record);
-
-                /*
-                $record = $node->record($class, $node->role_system(), [
-                    'where' => [
-                        [
-                            'attribute' => 'extension',
-                            'operator' => '===',
-                            'value' => $extension,
-                        ]
-                    ]
-                ]);
-                $record = $record['node'] ?? null;
                 if(!$record){
-                    $record = (object) [
-                        'extension' => $extension,
-                        'file_extension' => $file_extension,
-                    ];
-                    $record = $node->create($class, $node->role_system(), $record);
+                    $entity_extension = new Extension();
+                    $entity_extension->setName($extension);
+                    $connection->manager->persist($entity_extension);
+                    $connection->manager->flush();
+                    $record = $entity_extension;
                 }
-                elseif($record->file_extension !== $file_extension){
-                    $record->file_extension = $file_extension;
-                    $record = $node->patch($class, $node->role_system(), $record);
-                } else {
-                    //do nothing
-                }
-/*
-                $response = $node->create_many($name, $role, $create_many, [
-                    'import' => true,
-                    'uuid' => false,
-                    'validation' => $options->validation ?? true
-                ]);
-                if (array_key_exists('error', $response)) {
-                    $error = array_merge($error, $response['error']);
-                }
-                if (array_key_exists('list', $response)) {
-                    $create = count($response['list']);
-                }
-  */
                 $list[] = $record;
             }
         }
