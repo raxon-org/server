@@ -402,12 +402,13 @@ trait Setup {
         return $config;
     }
 
-    public function extension_list_import_sqlite(object $flags, object $options): array
+    public function extension_list_import_sqlite(array|object $flags, array|object $options): array
     {
         $object = $this->object();
         $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'));
-        if(!property_exists($options, 'connection')){
-            $options->connection = self::CONNECTION;
+        $options = Core::object($options, Core::OBJECT_ARRAY);
+        if(!array_key_exists('connection', $options)){
+            $options['connection'] = self::CONNECTION;
         }
         $node = new Node($object);
         $role = $node->role_system();
@@ -415,7 +416,7 @@ trait Setup {
         if($extension_list){
             foreach($extension_list->data('System.Server.Extension') as $extension => $file_extension){
                 $entity = 'Extension';
-                $entityManager = Database::entityManager($object, ['name'=> $options->connection]);
+                $entityManager = Database::entityManager($object, ['name'=> $options['connection']]);
                 $repository = $entityManager->getRepository($object->config('doctrine.entity.prefix') . $entity);
 
                 $record = $repository->findOneBy([
