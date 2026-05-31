@@ -158,10 +158,10 @@ trait Setup {
             $extension_list = $this->extension_list_import_sqlite($flags, $options);
             echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
             $content_type_list = $this->content_type_list_import_node($flags, $options);
+            dd($content_type_list);
             echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
-            dd($extension_list);
-            foreach($extension_list as $extension => $file_extension){
-                if(!array_key_exists($extension, $content_type_list)){
+            foreach($extension_list as $nr => $extension){
+                if(!array_key_exists($extension->getName(), $content_type_list)){
                     echo Cli::alert('Extension ' . $extension . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
                     echo Core::binary($object) . ' raxon/server content-type create -extension=' . $extension . ' -content_type=...'  .  PHP_EOL;
                 }
