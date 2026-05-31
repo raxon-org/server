@@ -420,7 +420,7 @@ trait Setup {
                 $repository = $entityManager->getRepository($object->config('doctrine.entity.prefix') . $entity);
 
                 $record = $repository->findOneBy([
-                    'extension' => $extension,
+                    'name' => $extension,
                 ]);
                 ddd($record);
 
