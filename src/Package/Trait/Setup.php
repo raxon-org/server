@@ -162,6 +162,14 @@ trait Setup {
                             ]
                         ]
                     ]);
+                    if(!$record){
+                        $record = (object) [
+                            'extension' => $extension,
+                            'file_extension' => $file_extension,
+                        ];
+                        $create = $node->create($class, $node->role_system(), $record);
+                        d($create);
+                    }
                     d($record);
                     d($extension);
                     dd($file_extension);
