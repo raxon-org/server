@@ -158,7 +158,6 @@ trait Setup {
             $extension_list = $this->extension_list_import_sqlite($flags, $options);
             echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
             $content_type_list = $this->content_type_list_import_node($flags, $options);
-            dd($content_type_list);
             echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
             foreach($extension_list as $nr => $extension){
                 foreach($content_type_list as $content_type){
