@@ -150,7 +150,19 @@ trait Setup {
 
             $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'));
             if($extension_list){
+                $class = 'System.Server.Extension';
                 foreach($extension_list->data('System.Server.Extension') as $extension => $file_extension){
+                    $node = new Node($object);
+                    $record = $node->record($class, $node->role_system(), [
+                        'where' => [
+                            [
+                                'attribute' => 'extension',
+                                'operator' => '===',
+                                'value' => $extension,
+                            ]
+                        ]
+                    ]);
+                    d($record);
                     d($extension);
                     dd($file_extension);
                 }
