@@ -148,37 +148,10 @@ trait Setup {
             //create extension list
             //create content type list
 
-            $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'));
-            if($extension_list){
-                $class = 'System.Server.Extension';
-                foreach($extension_list->data('System.Server.Extension') as $extension => $file_extension){
-                    $node = new Node($object);
-                    $record = $node->record($class, $node->role_system(), [
-                        'where' => [
-                            [
-                                'attribute' => 'extension',
-                                'operator' => '===',
-                                'value' => $extension,
-                            ]
-                        ]
-                    ]);
-                    if(!$record){
-                        $create = (object) [
-                            'extension' => $extension,
-                            'file_extension' => $file_extension,
-                        ];
-                        $create = $node->create($class, $node->role_system(), $create);
-                        d($create);
-                    }
-                    d($record);
-                    d($extension);
-                    dd($file_extension);
-                }
-            }
-            ddd($extension_list);
-
-
-
+            $extension_list = $this->extension_list_import($flags, $options);
+            echo 'Imported ' . count($extension_list) . ' extensions' . PHP_EOL;
+            $content_type_list = $this->content_type_list_import($flags, $options);
+            echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
             if(
                 $config &&
                 is_array($config) &&
@@ -424,8 +397,92 @@ trait Setup {
         return $config;
     }
 
+    /**
+     * @throws ObjectException
+     * @throws Exception
+     */
+    public function extension_list_import($flags, $options): array
+    {
+        $object = $this->object();
+        $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'));
+        $list = [];
+        if($extension_list){
+            $class = 'System.Server.Extension';
+            foreach($extension_list->data('System.Server.Extension') as $extension => $file_extension){
+                $node = new Node($object);
+                $record = $node->record($class, $node->role_system(), [
+                    'where' => [
+                        [
+                            'attribute' => 'extension',
+                            'operator' => '===',
+                            'value' => $extension,
+                        ]
+                    ]
+                ]);
+                $record = $record['node'] ?? null;
+                if(!$record){
+                    $record = (object) [
+                        'extension' => $extension,
+                        'file_extension' => $file_extension,
+                    ];
+                    $record = $node->create($class, $node->role_system(), $record);
+                }
+                elseif($record->file_extension !== $file_extension){
+                    $record->file_extension = $file_extension;
+                    $record = $node->patch($class, $node->role_system(), $record);
+                } else {
+                    //do nothing
+                }
+                $list[] = $record;
+            }
+        }
+        return $list;
+    }
+
     public function extension_list_create($flags, $options){
 
+    }
+
+    /**
+     * @throws ObjectException
+     * @throws Exception
+     */
+    public function content_type_list_import($flags, $options): array
+    {
+        $object = $this->object();
+        $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.ContentType' . $object->config('extension.json'));
+        $list = [];
+        if($extension_list){
+            $class = 'System.Server.ContentType';
+            foreach($extension_list->data('System.Server.ContentType') as $extension => $content_type){
+                $node = new Node($object);
+                $record = $node->record($class, $node->role_system(), [
+                    'where' => [
+                        [
+                            'attribute' => 'extension',
+                            'operator' => '===',
+                            'value' => $extension,
+                        ]
+                    ]
+                ]);
+                $record = $record['node'] ?? null;
+                if(!$record){
+                    $record = (object) [
+                        'extension' => $extension,
+                        'content_type' => $content_type,
+                    ];
+                    $record = $node->create($class, $node->role_system(), $record);
+                }
+                elseif($record->content_type !== $content_type){
+                    $record->content_type = $content_type;
+                    $record = $node->patch($class, $node->role_system(), $record);
+                } else {
+                    //do nothing
+                }
+                $list[] = $record;
+            }
+        }
+        return $list;
     }
 
     public function content_type_list_create($flags, $options){
