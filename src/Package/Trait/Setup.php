@@ -1,12 +1,15 @@
 <?php
 namespace Package\Raxon\Server\Trait;
 
+use Entity\Extension;
 use Exception;
+use Package\Raxon\Account\Module\Permission;
 use Raxon\App;
 use Raxon\Config;
 use Raxon\Exception\ObjectException;
 use Raxon\Module\Core;
 use Raxon\Module\Data;
+use Raxon\Module\Database;
 use Raxon\Module\Dir;
 use Raxon\Module\Event;
 use Raxon\Module\File;
@@ -15,6 +18,8 @@ use Raxon\Node\Service\Security;
 use Raxon\Parse\Module\Parse;
 
 trait Setup {
+
+    const CONNECTION = 'system';
 
     /**
      * @throws ObjectException
@@ -148,9 +153,9 @@ trait Setup {
             //create extension list
             //create content type list
 
-            $extension_list = $this->extension_list_import($flags, $options);
+            $extension_list = $this->extension_list_import_sqlite($flags, $options);
             echo 'Imported ' . count($extension_list) . ' extensions' . PHP_EOL;
-            $content_type_list = $this->content_type_list_import($flags, $options);
+            $content_type_list = $this->content_type_list_import_node($flags, $options);
             echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
             if(
                 $config &&
@@ -397,11 +402,76 @@ trait Setup {
         return $config;
     }
 
+    public function extension_list_import_sqlite(object $flags, object $options): array
+    {
+        $object = $this->object();
+        $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'));
+        if(!property_exists($options, 'connection')){
+            $options->connection = self::CONNECTION;
+        }
+        $node = new Node($object);
+        $role = $node->role_system();
+        $list = [];
+        if($extension_list){
+            foreach($extension_list->data('System.Server.Extension') as $extension => $file_extension){
+                $entity = 'Extension';
+                $entityManager = Database::entityManager($object, ['name'=> $options->connection]);
+                $repository = $entityManager->getRepository($object->config('doctrine.entity.prefix') . $entity);
+
+                $record = $repository->findOneBy([
+                    'extension' => $extension,
+                ]);
+                ddd($record);
+
+                /*
+                $record = $node->record($class, $node->role_system(), [
+                    'where' => [
+                        [
+                            'attribute' => 'extension',
+                            'operator' => '===',
+                            'value' => $extension,
+                        ]
+                    ]
+                ]);
+                $record = $record['node'] ?? null;
+                if(!$record){
+                    $record = (object) [
+                        'extension' => $extension,
+                        'file_extension' => $file_extension,
+                    ];
+                    $record = $node->create($class, $node->role_system(), $record);
+                }
+                elseif($record->file_extension !== $file_extension){
+                    $record->file_extension = $file_extension;
+                    $record = $node->patch($class, $node->role_system(), $record);
+                } else {
+                    //do nothing
+                }
+/*
+                $response = $node->create_many($name, $role, $create_many, [
+                    'import' => true,
+                    'uuid' => false,
+                    'validation' => $options->validation ?? true
+                ]);
+                if (array_key_exists('error', $response)) {
+                    $error = array_merge($error, $response['error']);
+                }
+                if (array_key_exists('list', $response)) {
+                    $create = count($response['list']);
+                }
+  */
+                $list[] = $record;
+            }
+        }
+        return $list;
+    }
+
+
     /**
      * @throws ObjectException
      * @throws Exception
      */
-    public function extension_list_import($flags, $options): array
+    public function extension_list_import_node($flags, $options): array
     {
         $object = $this->object();
         $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'));
@@ -447,7 +517,7 @@ trait Setup {
      * @throws ObjectException
      * @throws Exception
      */
-    public function content_type_list_import($flags, $options): array
+    public function content_type_list_import_node($flags, $options): array
     {
         $object = $this->object();
         $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.ContentType' . $object->config('extension.json'));
