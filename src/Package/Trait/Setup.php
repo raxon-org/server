@@ -145,6 +145,14 @@ trait Setup {
                 Dir::remove($response['node']->public);
             }
             $response = $node->patch($class, $node->role_system(), $record);
+            //create extension list
+            //create content type list
+
+            $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'));
+            ddd($extension_list);
+
+
+
             if(
                 $config &&
                 is_array($config) &&
