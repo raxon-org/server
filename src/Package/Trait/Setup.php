@@ -149,6 +149,12 @@ trait Setup {
             //create content type list
 
             $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'));
+            if($extension_list){
+                foreach($extension_list->data('System.Server.Extension') as $extension => $file_extension){
+                    d($extension);
+                    dd($file_extension);
+                }
+            }
             ddd($extension_list);
 
 
