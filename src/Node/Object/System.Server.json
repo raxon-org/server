@@ -121,6 +121,38 @@
             "where": "",
             "filter": [],
             "limit": "*"
+        },
+        {
+          "type": "one-many",
+          "class": "System.Server.Extension",
+          "attribute": "extension",
+          "sort": {
+            "name": "ASC"
+          },
+          "output": {
+            "filter": [
+              "Raxon:Output:Filter:System:Server:Extension"
+            ]
+          },
+          "where": "",
+          "filter": [],
+          "limit": "*"
+        },
+        {
+          "type": "one-many",
+          "class": "System.Server.ContentType",
+          "attribute": "contentType",
+          "sort": {
+            "name": "ASC"
+          },
+          "output": {
+            "filter": [
+              "Raxon:Output:Filter:System:Server:ContentType"
+            ]
+          },
+          "where": "",
+          "filter": [],
+          "limit": "*"
         }
     ]
 }

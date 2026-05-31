@@ -15,7 +15,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
@@ -50,7 +52,21 @@
                                         ]
                                     }
                                 }
-                            }
+                            },
+                            "extension": {
+                                "multiple": true,
+                                "output": [
+                                  "extension",
+                                  "file_extension"
+                                ]
+                            },
+                            "contentType": {
+                                "multiple": true,
+                                "output": [
+                                  "extension",
+                                  "content_type"
+                              ]
+                          }
                         }
                     }
                 ]
@@ -69,7 +85,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
@@ -123,7 +141,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
@@ -177,7 +197,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
@@ -231,7 +253,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
@@ -285,7 +309,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
@@ -339,7 +365,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
@@ -393,7 +421,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
@@ -447,7 +477,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
@@ -501,7 +533,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
@@ -555,7 +589,9 @@
                             "url",
                             "cors",
                             "directory_public",
-                            "public"
+                            "public",
+                            "extension",
+                            "contentType"
                         ],
                         "object": {
                             "email": {
