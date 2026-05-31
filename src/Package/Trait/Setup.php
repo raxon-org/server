@@ -9,7 +9,7 @@ use Raxon\Config;
 use Raxon\Exception\ObjectException;
 use Raxon\Module\Core;
 use Raxon\Module\Data;
-use Raxon\Module\Database;
+use Raxon\Doctrine\Module\Database;
 use Raxon\Module\Dir;
 use Raxon\Module\Event;
 use Raxon\Module\File;
@@ -416,8 +416,27 @@ trait Setup {
         if($extension_list){
             foreach($extension_list->data('System.Server.Extension') as $extension => $file_extension){
                 $entity = 'Extension';
-                $entityManager = Database::entityManager($object, ['name'=> $options['connection']]);
-                $repository = $entityManager->getRepository($object->config('doctrine.entity.prefix') . $entity);
+
+                $config = Database::config($object);
+                $connection = $object->config('doctrine.environment.system.*');
+                $connection->manager = Database::entity_manager($object, $config, $connection);
+                /*
+                $entity = 'Task';
+                $node = new Node($object);
+                $role_system = $node->role_system();
+                $task = new Task();
+                $task->setUser($user->uuid);
+                $task->setRequest($object->request());
+                $task->setCommand([]);
+                $task->setController([
+                    $name
+                ]);
+                $task->setDescription('Speech to text task conversion from .wav generated in the browser and send to the backend to output a response.');
+                $task->setStatus(Status::PENDING);
+                $connection->manager->persist($task);
+                $connection->manager->flush();
+                */
+                $repository = $connection->manager->getRepository($object->config('doctrine.entity.prefix') . $entity);
 
                 $record = $repository->findOneBy([
                     'name' => $extension,
