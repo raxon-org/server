@@ -159,16 +159,17 @@ trait Setup {
             echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
             $content_type_list = $this->content_type_list_import_node($flags, $options);
             echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
+            dd($extension_list);
             foreach($extension_list as $extension => $file_extension){
                 if(!array_key_exists($extension, $content_type_list)){
                     echo Cli::alert('Extension ' . $extension . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
-                    echo Core::binary($object) . ' raxon/server content-type create -extension=' . $extension . ' -content_type= ' . $file_extension .  PHP_EOL;
+                    echo Core::binary($object) . ' raxon/server content-type create -extension=' . $extension . ' -content_type=...'  .  PHP_EOL;
                 }
             }
             foreach($content_type_list as $extension => $content_type){
                 if(!array_key_exists($extension, $extension_list)){
                     echo Cli::alert('Extension ' . $extension . ' not found in the "extension list", please add it manually.') . PHP_EOL;
-                    echo Core::binary($object) . ' raxon/server extension create -extension=' . $extension . ' -file_extension= ' . $file_extension .  PHP_EOL;
+                    echo Core::binary($object) . ' raxon/server extension create -extension=' . $extension . ' -file_extension=... ' .  PHP_EOL;
                 }
             }
             if(
