@@ -161,14 +161,20 @@ trait Setup {
             dd($content_type_list);
             echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
             foreach($extension_list as $nr => $extension){
-                if(!array_key_exists($extension->getName(), $content_type_list)){
-                    echo Cli::alert('Extension ' . $extension . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
+                foreach($content_type_list as $content_type){
+                    if($extension->getName() === $content_type->extension){
+                        continue;
+                    }
+                    echo Cli::error('Extension ' . $extension . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
                     echo Core::binary($object) . ' raxon/server content-type create -extension=' . $extension . ' -content_type=...'  .  PHP_EOL;
                 }
             }
-            foreach($content_type_list as $extension => $content_type){
-                if(!array_key_exists($extension, $extension_list)){
-                    echo Cli::alert('Extension ' . $extension . ' not found in the "extension list", please add it manually.') . PHP_EOL;
+            foreach($content_type_list as $nr => $content_type){
+                foreach($extension_list as $extension){
+                    if($content_type->extension === $extension->getName()){
+                        continue;
+                    }
+                    echo Cli::error('Extension ' . $extension . ' not found in the "extension list", please add it manually.') . PHP_EOL;
                     echo Core::binary($object) . ' raxon/server extension create -extension=' . $extension . ' -file_extension=... ' .  PHP_EOL;
                 }
             }
