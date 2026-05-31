@@ -1,0 +1,20 @@
+{
+    "Node": {
+        "#class": "System.Server.Url",
+        "type": "object",
+        "property": [
+            {
+                "name": "extension",
+                "type": "string"
+            },
+            {
+              "name": "file_extension",
+              "type": "string"
+            }
+        ]
+    },
+    "is.unique": [
+        "extension",
+        "file_extension"
+    ]
+}

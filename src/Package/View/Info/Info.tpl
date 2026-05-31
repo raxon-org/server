@@ -47,3 +47,10 @@ Options:
 {{/for.each}}
 {{/if}}
 {{/if}}
+/**
+- add default extensions like in framework/data/config.json
+- add an option to crud an extension
+- add also content-types per extension somewhere and crud it too.
+- retest boot script, because server is now placed below account.
+
+*/

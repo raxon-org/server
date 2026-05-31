@@ -1,0 +1,119 @@
+{
+    "System": {
+        "Server": {
+            "Extension": {
+                "create": {
+                  "validate": {
+                    "uuid": [
+                        {
+                            "is.uuid": true
+                        }
+                    ],
+                    "extension": [
+                        {
+                            "is.unique": {
+                                "class": "System.Server.ContentType",
+                                "attribute": [
+                                    "extension"
+                                ]
+                            }
+                        }
+                    ],
+                    "content_type": [
+                      {
+                        "is.unique": {
+                          "class": "System.Server.ContentType",
+                          "attribute": [
+                            "content_type"
+                         ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "put": {
+                  "validate": {
+                    "uuid": [
+                      {
+                        "is.uuid": true
+                      }
+                    ],
+                    "extension": [
+                      {
+                        "is.unique": {
+                          "class": "System.Server.ContentType",
+                          "attribute": [
+                            "extension"
+                          ]
+                        }
+                      }
+                    ],
+                    "content_type": [
+                      {
+                        "is.unique": {
+                          "class": "System.Server.ContentType",
+                          "attribute": [
+                            "content_type"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "patch": {
+                  "options": {
+                    "or": [
+                      {
+                        "left": [
+                          "extension"
+                        ],
+                        "right": [
+                          "file_extension"
+                        ]
+                      }
+                    ],
+                    "xor": [
+                      {
+                        "#example": "...",
+                        "left": [
+                          "(uuid && extension) || (uuid && file_extension) || (extension && file_extension)",
+                          "extension"
+                        ],
+                        "right": [
+                          "file_extension"
+                        ]
+                      }
+                    ]
+                  },
+                  "validate": {
+                    "uuid": [
+                      {
+                        "is.uuid": true
+                      }
+                    ],
+                    "?extension": [
+                      {
+                        "is.unique": {
+                          "class": "System.Server.ContentType",
+                          "attribute": [
+                            "extension"
+                          ]
+                        }
+                      }
+                    ],
+                    "?content_type": [
+                      {
+                        "is.unique": {
+                          "class": "System.Server.ContentType",
+                          "attribute": [
+                            "content_type"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+            }
+        }
+    }
+}

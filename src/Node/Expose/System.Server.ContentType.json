@@ -1,0 +1,151 @@
+{
+    "System": {
+        "Server": {
+            "Extension": {
+                "count": {
+                    "output": [
+                        {
+                            "role": "ROLE_SYSTEM",
+                            "property": [
+                                "uuid",
+                                "#class",
+                                "extension",
+                                "content_type"
+                            ]
+                        }
+                    ]
+                },
+                "list": {
+                    "output": [
+                      {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                          "uuid",
+                          "#class",
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    ]
+                },
+                "page": {
+                    "output": [
+                      {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                          "uuid",
+                          "#class",
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    ]
+                },
+                "read": {
+                    "output": [
+                      {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                          "uuid",
+                          "#class",
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    ]
+                },
+                "record": {
+                    "output": [
+                      {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                          "uuid",
+                          "#class",
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    ]
+                },
+                "create": {
+                    "output": [
+                      {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                          "uuid",
+                          "#class",
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    ]
+                },
+                "create_many": {
+                    "output": [
+                      {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                          "uuid",
+                          "#class",
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    ]
+                },
+                "put": {
+                    "output": [
+                      {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                          "uuid",
+                          "#class",
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    ]
+                },
+                "put_many": {
+                    "output": [
+                      {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                          "uuid",
+                          "#class",
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    ]
+                },
+                "patch": {
+                    "output": [
+                      {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                          "uuid",
+                          "#class",
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    ]
+                },
+                "patch_many": {
+                    "output": [
+                      {
+                        "role": "ROLE_SYSTEM",
+                        "property": [
+                          "uuid",
+                          "#class",
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    ]
+                }
+            }
+        }
+    }
+}

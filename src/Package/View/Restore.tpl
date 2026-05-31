@@ -1,2 +1,3 @@
 {{$options = options()}}
-{{Package.Raxon.Server:Main:restore($options)}}
+{{$flags = flags()}}
+{{Package.Raxon.Server:Setup:restore($flags, $options)}}

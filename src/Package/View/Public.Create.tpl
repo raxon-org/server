@@ -1,2 +1,3 @@
 {{$options = options()}}
-{{Package.Raxon.Server:Main:public.create($options)}}
+{{$flags = flags()}}
+{{Package.Raxon.Server:Setup:public.create($flags, $options)}}
