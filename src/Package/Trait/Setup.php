@@ -162,7 +162,7 @@ trait Setup {
             foreach($extension_list as $nr => $extension){
                 foreach($content_type_list as $content_type){
                     if($extension->getName() === $content_type->extension){
-                        continue;
+                        continue 2;
                     }
                     echo Cli::error('Extension ' . $extension->getName() . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
                     echo Core::binary($object) . ' raxon/server content-type create -extension=' . $extension->getName() . ' -content_type=...'  .  PHP_EOL;
@@ -171,7 +171,7 @@ trait Setup {
             foreach($content_type_list as $nr => $content_type){
                 foreach($extension_list as $extension){
                     if($content_type->extension === $extension->getName()){
-                        continue;
+                        continue 2;
                     }
                     echo Cli::error('Extension ' . $content_type->extension . ' not found in the "extension list", please add it manually.') . PHP_EOL;
                     echo Core::binary($object) . ' raxon/server extension create -extension=' . $content_type->extension . ' -file_extension=... ' .  PHP_EOL;
