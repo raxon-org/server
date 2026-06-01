@@ -165,6 +165,9 @@ trait Setup {
                     if(is_array($extension)){
                         dd($extension);
                     }
+                    elseif(is_array($content_type)){
+                        dd($content_type);
+                    }
                     elseif($extension->getName() === $content_type->extension){
                         $is_found = true;
                         break;
