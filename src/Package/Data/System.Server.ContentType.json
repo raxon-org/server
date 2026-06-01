@@ -37,9 +37,6 @@
         "pdf": "application\/pdf",
         "webp": "image\/webp",
         "mp4": "video\/mp4",
-        "avi": "video\/x-msvideo",
-        "wmv": "video\/x-ms-wmv",
-        "mov": "video\/quicktime",
         "webm": "video\/webm",
         "csv": "text\/csv",
         "php": "text\/html",
@@ -50,10 +47,11 @@
         "docx": "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
         "pptx": "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         "xml": "application\/xml",
-        "vob": "video\/vob",
         "wasm": "application\/wasm",
         "db": "application\/octet-stream",
-        "sql": "text\/plain"
+        "sql": "text\/plain",
+        "gz": "application/x-gzip",
+        "conf": "text/plain"
       }
     }
   }
