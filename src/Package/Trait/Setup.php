@@ -124,6 +124,15 @@ trait Setup {
                     'options' => $options,
                     'response' => $response
                 ]);
+                $extension_list = $this->extension_list_import_node($flags, $options);
+                echo 'Imported ' . count($extension_list) . ' extension nodes' . PHP_EOL;
+                $extension_list = $this->extension_list_import_sqlite($flags, $options);
+                echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
+                $content_type_list = $this->content_type_list_import_node($flags, $options);
+                echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
+                $is_found = false;
+                $this->extension_content_type_cross_reference($content_type_list, $extension_list);
+                //add extension
                 return null;
             }
         }
@@ -160,61 +169,7 @@ trait Setup {
             $content_type_list = $this->content_type_list_import_node($flags, $options);
             echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
             $is_found = false;
-            foreach($extension_list as $nr => $extension){
-                foreach($content_type_list as $content_type){
-                    if(is_array($extension) && is_array($content_type)){
-                        d($content_type);
-                        dd($extension);
-                    }
-                    elseif(is_array($extension)){
-                        dd($extension);
-                    }
-                    elseif(
-                        is_array($content_type) &&
-                        array_key_exists('node', $content_type) &&
-                        is_object($content_type['node']) &&
-                        property_exists($content_type['node'], 'extension') &&
-                        $extension->getName() === $content_type['node']->extension
-                    ){
-                        $is_found = true;
-                        break;
-                    }
-                    elseif(is_array($content_type)){
-                        dd($content_type);
-                    }
-                    elseif($extension->getName() === $content_type->extension){
-                        $is_found = true;
-                        break;
-                    }
-                }
-                if(!$is_found){
-                    echo Cli::error('Extension ' . $extension->getName() . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
-                    echo Core::binary($object) . ' raxon/server content-type create -extension=' . $extension->getName() . ' -content_type=...'  .  PHP_EOL;
-                } else {
-                    $is_found = false;
-                }
-            }
-            $is_found = false;
-            foreach($content_type_list as $nr => $content_type){
-                foreach($extension_list as $extension){
-                    if(is_array($extension)){
-                        dd($extension);
-                    }
-                    elseif(is_array($content_type)){
-                        dd($content_type);
-                    }
-                    elseif($content_type->extension === $extension->getName()){
-                        $is_found = true;
-                        break;
-                    }
-                }
-                if(!$is_found){
-                    echo Cli::error('Extension ' . $content_type->extension . ' not found in the "extension list", please add it manually.') . PHP_EOL;
-                    echo Core::binary($object) . ' raxon/server extension create -extension=' . $content_type->extension . ' -file_extension=... ' .  PHP_EOL;
-                } else {
-                    $is_found = false;
-                }
-            }
+            $this->extension_content_type_cross_reference($content_type_list, $extension_list);
             if(
                 $config &&
                 is_array($config) &&
@@ -256,6 +211,70 @@ trait Setup {
             'exception' => $exception
         ]);
         throw $exception;
+    }
+
+    public function extension_content_type_cross_reference($content_type_list, $extension_list): void
+    {
+        $object = $this->object();
+        foreach($extension_list as $nr => $extension){
+            foreach($content_type_list as $content_type){
+                if(is_array($extension) && is_array($content_type)){
+                    d($content_type);
+                    dd($extension);
+                }
+                elseif(is_array($extension)){
+                    dd($extension);
+                }
+                elseif(
+                    is_array($content_type) &&
+                    array_key_exists('node', $content_type) &&
+                    is_object($content_type['node']) &&
+                    property_exists($content_type['node'], 'extension') &&
+                    $extension->getName() === $content_type['node']->extension
+                ){
+                    $is_found = true;
+                    break;
+                }
+                elseif(is_array($content_type)){
+                    dd($content_type);
+                }
+                elseif($extension->getName() === $content_type->extension){
+                    $is_found = true;
+                    break;
+                }
+            }
+            if(!$is_found){
+                echo Cli::error('Extension ' . $extension->getName() . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
+                echo Core::binary($object) . ' raxon/server content-type create -extension=' . $extension->getName() . ' -content_type=...'  .  PHP_EOL;
+            } else {
+                $is_found = false;
+            }
+        }
+        $is_found = false;
+        foreach($content_type_list as $nr => $content_type){
+            foreach($extension_list as $extension){
+                if(is_array($extension) && is_array($content_type)){
+                    d($content_type);
+                    ddd($extension);
+                }
+                if(is_array($extension)){
+                    dd($extension);
+                }
+                elseif(is_array($content_type)){
+                    dd($content_type);
+                }
+                elseif($content_type->extension === $extension->getName()){
+                    $is_found = true;
+                    break;
+                }
+            }
+            if(!$is_found){
+                echo Cli::error('Extension ' . $content_type->extension . ' not found in the "extension list", please add it manually.') . PHP_EOL;
+                echo Core::binary($object) . ' raxon/server extension create -extension=' . $content_type->extension . ' -file_extension=... ' .  PHP_EOL;
+            } else {
+                $is_found = false;
+            }
+        }
     }
 
     /**
