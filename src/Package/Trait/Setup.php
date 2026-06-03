@@ -275,7 +275,10 @@ trait Setup {
                     $is_found = true;
                     break;
                 }
-                elseif(is_array($content_type)){
+                elseif(
+                    is_array($content_type) &&
+                    !array_key_exists('node', $content_type)
+                ){
                     dd($content_type);
                 }
                 elseif($content_type->extension === $extension->getName()){
