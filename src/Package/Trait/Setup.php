@@ -281,7 +281,10 @@ trait Setup {
                 ){
                     dd($content_type);
                 }
-                elseif($content_type->extension === $extension->getName()){
+                elseif(
+                    is_object($content_type) &&
+                    $content_type->extension === $extension->getName()
+                ){
                     $is_found = true;
                     break;
                 }
