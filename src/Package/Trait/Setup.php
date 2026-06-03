@@ -162,7 +162,11 @@ trait Setup {
             $is_found = false;
             foreach($extension_list as $nr => $extension){
                 foreach($content_type_list as $content_type){
-                    if(is_array($extension)){
+                    if(is_array($extension) && is_array($content_type)){
+                        d($content_type);
+                        dd($extension);
+                    }
+                    elseif(is_array($extension)){
                         dd($extension);
                     }
                     elseif(
