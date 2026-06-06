@@ -100,6 +100,8 @@ trait Setup {
         if(!$response){
             $record = (object) [
                 'public' => $options['public'],
+                'extension' => '*',
+                'contentType' => '*',
                 '#class' => $class
             ];
             $response = $node->create($class, $node->role_system(), $record);
@@ -119,20 +121,18 @@ trait Setup {
                 !empty($response['node']->public) &&
                 Dir::is($response['node']->public)
             ){
-                echo 'Server public directory (' . $response['node']->public .') configured (create)' . PHP_EOL;
-                Event::trigger($object, 'raxon.org.server.public.create', [
-                    'options' => $options,
-                    'response' => $response
-                ]);
                 $extension_list = $this->extension_list_import_node($flags, $options);
                 echo 'Imported ' . count($extension_list) . ' extension nodes' . PHP_EOL;
                 $extension_list = $this->extension_list_import_sqlite($flags, $options);
                 echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
                 $content_type_list = $this->content_type_list_import_node($flags, $options);
                 echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
-                $is_found = false;
                 $this->extension_content_type_cross_reference($content_type_list, $extension_list);
-                //add extension
+                echo 'Server public directory (' . $response['node']->public .') configured (create)' . PHP_EOL;
+                Event::trigger($object, 'raxon.org.server.public.create', [
+                    'options' => $options,
+                    'response' => $response
+                ]);
                 return null;
             }
         }
@@ -143,7 +143,6 @@ trait Setup {
             property_exists($response['node'], 'uuid')
         ){
             $config = $this->system_config($node);
-            //dont forget to update the insert
             $record = (object) [
                 'uuid' => $response['node']->uuid,
                 'public' => $options['public'],
@@ -500,9 +499,13 @@ trait Setup {
         return $config;
     }
 
+    /**
+     * @throws Exception
+     */
     public function extension_list_import_sqlite(array|object $flags, array|object $options): array
     {
         $object = $this->object();
+        //make $option -data=url for extension list
         $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'));
         $options = Core::object($options, Core::OBJECT_ARRAY);
         if(!array_key_exists('connection', $options)){
