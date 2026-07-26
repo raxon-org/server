@@ -255,6 +255,7 @@ trait Setup {
             }
         }
         $is_found = false;
+        ddd($content_type_list);
         foreach($content_type_list as $nr => $content_type){
             foreach($extension_list as $extension){
                 if(is_array($extension) && is_array($content_type)){
