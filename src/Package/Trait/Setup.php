@@ -122,7 +122,6 @@ trait Setup {
                 Dir::is($response['node']->public)
             ){
                 $extension_list = $this->extension_list_import_node($flags, $options);
-                ddd($extension_list);
                 echo 'Imported ' . count($extension_list) . ' extension nodes' . PHP_EOL;
                 $extension_list = $this->extension_list_import_sqlite($flags, $options);
                 echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
