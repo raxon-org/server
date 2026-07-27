@@ -1,0 +1,65 @@
+{
+    "System": {
+        "Server": {
+            "Extension": {
+                "create": {
+                  "validate": {
+                    "uuid": [
+                        {
+                            "is.uuid": true
+                        }
+                    ],
+                    "extension": [
+                        {
+                            "is.unique": {
+                                "class": "System.Server.Extension",
+                                "attribute": [
+                                    "extension"
+                                ]
+                            }
+                        }
+                    ]
+                  }
+                },
+                "put": {
+                  "validate": {
+                    "uuid": [
+                      {
+                        "is.uuid": true
+                      }
+                    ],
+                    "extension": [
+                      {
+                        "is.unique": {
+                          "class": "System.Server.Extension",
+                          "attribute": [
+                            "extension"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "patch": {
+                  "validate": {
+                    "uuid": [
+                      {
+                        "is.uuid": true
+                      }
+                    ],
+                    "?extension": [
+                      {
+                        "is.unique": {
+                          "class": "System.Server.Extension",
+                          "attribute": [
+                            "extension"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+            }
+        }
+    }
+}
