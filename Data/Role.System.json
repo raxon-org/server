@@ -430,6 +430,90 @@
     {
       "name": "System:Server:ContentType:delete",
       "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:import",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:record",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:ContentType:record.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:create",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:create.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:count",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:count.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:commit",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:read",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:read.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:put",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:put.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:patch",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:patch.many",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:page",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:page.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:property.delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:ContentType:list",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:list.relation",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:rename",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Server:Extension:Enabled:delete",
+      "#class": "Account.Permission"
     }
   ]
 }
