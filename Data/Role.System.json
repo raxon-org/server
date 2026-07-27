@@ -500,7 +500,7 @@
       "#class": "Account.Permission"
     },
     {
-      "name": "System:Server:ContentType:list",
+      "name": "System:Server:Extension:Enabled  :list",
       "#class": "Account.Permission"
     },
     {
