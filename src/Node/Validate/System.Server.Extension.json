@@ -9,22 +9,22 @@
                             "is.uuid": true
                         }
                     ],
-                    "extension": [
+                    "name": [
                         {
                             "is.unique": {
                                 "class": "System.Server.Extension",
                                 "attribute": [
-                                    "extension"
+                                    "name"
                                 ]
                             }
                         }
                     ],
-                   "file_extension": [
+                   "extension": [
                       {
                         "is.unique": {
                           "class": "System.Server.Extension",
                           "attribute": [
-                            "file_extension"
+                            "extension"
                           ]
                         }
                       }
@@ -38,22 +38,22 @@
                         "is.uuid": true
                       }
                     ],
+                    "name": [
+                      {
+                        "is.unique": {
+                          "class": "System.Server.Extension",
+                          "attribute": [
+                            "name"
+                          ]
+                        }
+                      }
+                    ],
                     "extension": [
                       {
                         "is.unique": {
                           "class": "System.Server.Extension",
                           "attribute": [
                             "extension"
-                          ]
-                        }
-                      }
-                    ],
-                    "file_extension": [
-                      {
-                        "is.unique": {
-                          "class": "System.Server.Extension",
-                          "attribute": [
-                            "file_extension"
                           ]
                         }
                       }
@@ -65,10 +65,10 @@
                     "or": [
                       {
                         "left": [
-                          "extension"
+                          "name"
                         ],
                         "right": [
-                          "file_extension"
+                          "extension"
                         ]
                       }
                     ],
@@ -91,22 +91,22 @@
                         "is.uuid": true
                       }
                     ],
+                    "?name": [
+                      {
+                        "is.unique": {
+                          "class": "System.Server.Extension",
+                          "attribute": [
+                            "name"
+                          ]
+                        }
+                      }
+                    ],
                     "?extension": [
                       {
                         "is.unique": {
                           "class": "System.Server.Extension",
                           "attribute": [
                             "extension"
-                          ]
-                        }
-                      }
-                    ],
-                    "?file_extension": [
-                      {
-                        "is.unique": {
-                          "class": "System.Server.Extension",
-                          "attribute": [
-                            "file_extension"
                           ]
                         }
                       }

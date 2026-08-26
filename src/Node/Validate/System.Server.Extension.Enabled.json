@@ -9,12 +9,12 @@
                             "is.uuid": true
                         }
                     ],
-                    "extension": [
+                    "name": [
                         {
                             "is.unique": {
                                 "class": "System.Server.Extension",
                                 "attribute": [
-                                    "extension"
+                                    "name"
                                 ]
                             }
                         }
@@ -28,12 +28,12 @@
                         "is.uuid": true
                       }
                     ],
-                    "extension": [
+                    "name": [
                       {
                         "is.unique": {
                           "class": "System.Server.Extension",
                           "attribute": [
-                            "extension"
+                            "name"
                           ]
                         }
                       }
@@ -47,12 +47,12 @@
                         "is.uuid": true
                       }
                     ],
-                    "?extension": [
+                    "?name": [
                       {
                         "is.unique": {
                           "class": "System.Server.Extension",
                           "attribute": [
-                            "extension"
+                            "name"
                           ]
                         }
                       }
