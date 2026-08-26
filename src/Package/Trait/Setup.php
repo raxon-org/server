@@ -218,6 +218,7 @@ trait Setup {
     {
         $object = $this->object();
         foreach($extension_list as $nr => $extension){
+            ddd($extension);
             $is_found = false;
             foreach($content_type_list as $content_type){
                 if(is_array($extension) && is_array($content_type)){
@@ -244,8 +245,9 @@ trait Setup {
                     dd($content_type);
                 }
                 elseif(
-                    is_object($content_type) &&
-                    property_exists($extension, 'name')
+                    is_object($extension) &&
+                    property_exists($extension, 'name') &&
+                    $extension->name === $content_type->extension
                 ){
                     $is_found = true;
                     break;
