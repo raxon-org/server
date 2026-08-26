@@ -262,6 +262,8 @@ trait Setup {
                 }
                 elseif(
                     is_object($content_type) &&
+                    is_object($extension) &&
+                    method_exists($extension, 'getName') &&
                     $extension->getName() === $content_type->extension
                 ){
                     $is_found = true;
