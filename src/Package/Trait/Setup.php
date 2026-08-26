@@ -125,8 +125,6 @@ trait Setup {
                 echo 'Imported ' . count($extension_list) . ' extension nodes' . PHP_EOL;
 //                $extension_list = $this->extension_list_import_sqlite($flags, $options);
 //                echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
-                $extension_list = $this->extension_list_import_node($flags, $options);
-                echo 'Imported ' . count($extension_list) . ' extensions in node' . PHP_EOL;
                 $content_type_list = $this->content_type_list_import_node($flags, $options);
                 echo 'Imported ' . count($content_type_list) . ' contentTypes in node' . PHP_EOL;
                 $this->extension_content_type_cross_reference($content_type_list, $extension_list);
@@ -276,6 +274,17 @@ trait Setup {
                 }
                 if(is_array($extension)){
                     dd($extension);
+                }
+                elseif(
+                    is_array($content_type) &&
+                    array_key_exists('node', $content_type) &&
+                    is_object($content_type['node']) &&
+                    property_exists($content_type['node'], 'extension') &&
+                    property_exists($extension, 'name') &&
+                    $extension->name === $content_type['node']->extension
+                ){
+                    $is_found = true;
+                    break;
                 }
                 elseif(
                     is_array($content_type) &&
@@ -595,13 +604,13 @@ trait Setup {
                 $record = $record['node'] ?? null;
                 if(!$record){
                     $record = (object) [
-                        'extension' => $extension,
-                        'file_extension' => $file_extension,
+                        'name' => $extension,
+                        'extension' => $file_extension,
                     ];
                     $record = $node->create($class, $node->role_system(), $record);
                 }
                 elseif($record->file_extension !== $file_extension){
-                    $record->file_extension = $file_extension;
+                    $record->extension = $file_extension;
                     $record = $node->patch($class, $node->role_system(), $record);
                 } else {
                     //do nothing
