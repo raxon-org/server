@@ -316,6 +316,17 @@ trait Setup {
                 }
                 elseif(
                     is_object($content_type) &&
+                    is_object($extension) &&
+                    property_exists($extension, 'name') &&
+                    $content_type->extension === $extension->name
+                ){
+                    $is_found = true;
+                    break;
+                }
+                elseif(
+                    is_object($content_type) &&
+                    is_object($extension) &&
+                    method_exists($extension, 'getName') &&
                     $content_type->extension === $extension->getName()
                 ){
                     $is_found = true;
