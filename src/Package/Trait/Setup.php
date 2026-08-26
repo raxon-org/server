@@ -165,8 +165,8 @@ trait Setup {
             //create content type list
             $extension_list = $this->extension_list_import_node($flags, $options);
             echo 'Imported ' . count($extension_list) . ' extension nodes' . PHP_EOL;
-            $extension_list = $this->extension_list_import_sqlite($flags, $options);
-            echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
+//            $extension_list = $this->extension_list_import_sqlite($flags, $options);
+//            echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
             $content_type_list = $this->content_type_list_import_node($flags, $options);
             echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
             $is_found = false;
