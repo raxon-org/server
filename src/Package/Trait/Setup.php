@@ -619,8 +619,12 @@ trait Setup {
                     ];
                     $record = $node->create($class, $node->role_system(), $record);
                 }
-                elseif($record->file_extension !== $file_extension){
-                    $record->name = $file_extension;
+                elseif(
+                    property_exists($record, 'extension' &&
+                        $record->extension !== $file_extension
+                    )
+                ){
+                    $record->extension = $file_extension;
                     $record = $node->patch($class, $node->role_system(), $record);
                 } else {
                     //do nothing
