@@ -537,6 +537,7 @@ trait Setup {
                 $connection->manager->persist($task);
                 $connection->manager->flush();
                 */
+                /*
                 $repository = $connection->manager->getRepository($object->config('doctrine.entity.prefix') . $entity);
 
                 $record = $repository->findOneBy([
@@ -550,6 +551,7 @@ trait Setup {
                     $record = $entity_extension;
                 }
                 $list[] = $record;
+                */
             }
         }
         return $list;
