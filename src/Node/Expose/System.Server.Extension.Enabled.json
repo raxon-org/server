@@ -10,7 +10,7 @@
                       "property": [
                         "uuid",
                         "#class",
-                        "extension",
+                        "name",
                         "description"
                       ]
                     }
@@ -23,6 +23,7 @@
                       "property": [
                         "uuid",
                         "#class",
+                        "name",
                         "extension",
                         "description"
                       ]
@@ -36,6 +37,7 @@
                       "property": [
                         "uuid",
                         "#class",
+                        "name",
                         "extension",
                         "description"
                       ]
@@ -49,6 +51,7 @@
                       "property": [
                         "uuid",
                         "#class",
+                        "name",
                         "extension",
                         "description"
                       ]
@@ -62,6 +65,7 @@
                       "property": [
                         "uuid",
                         "#class",
+                        "name",
                         "extension",
                         "description"
                       ]
@@ -75,6 +79,7 @@
                       "property": [
                         "uuid",
                         "#class",
+                        "name",
                         "extension",
                         "description"
                       ]
@@ -88,6 +93,7 @@
                       "property": [
                         "uuid",
                         "#class",
+                        "name",
                         "extension",
                         "description"
                       ]
@@ -101,6 +107,7 @@
                       "property": [
                         "uuid",
                         "#class",
+                        "name",
                         "extension",
                         "description"
                       ]
@@ -114,6 +121,7 @@
                       "property": [
                         "uuid",
                         "#class",
+                        "name",
                         "extension",
                         "description"
                       ]
@@ -127,6 +135,7 @@
                       "property": [
                         "uuid",
                         "#class",
+                        "name",
                         "extension",
                         "description"
                       ]
@@ -140,6 +149,7 @@
                       "property": [
                         "uuid",
                         "#class",
+                        "name",
                         "extension",
                         "description"
                       ]

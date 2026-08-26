@@ -9,8 +9,8 @@
                             "property": [
                                 "uuid",
                                 "#class",
-                                "extension",
-                                "file_extension"
+                                "name",
+                                "extension"
                             ]
                         }
                     ]
@@ -22,8 +22,8 @@
                         "property": [
                           "uuid",
                           "#class",
-                          "extension",
-                          "file_extension"
+                          "name",
+                          "extension"
                         ]
                       }
                     ]
@@ -35,8 +35,8 @@
                         "property": [
                           "uuid",
                           "#class",
-                          "extension",
-                          "file_extension"
+                          "name",
+                          "extension"
                         ]
                       }
                     ]
@@ -48,8 +48,8 @@
                         "property": [
                           "uuid",
                           "#class",
-                          "extension",
-                          "file_extension"
+                          "name",
+                          "extension"
                         ]
                       }
                     ]
@@ -61,8 +61,8 @@
                         "property": [
                           "uuid",
                           "#class",
-                          "extension",
-                          "file_extension"
+                          "name",
+                          "extension"
                         ]
                       }
                     ]
@@ -74,8 +74,8 @@
                         "property": [
                           "uuid",
                           "#class",
-                          "extension",
-                          "file_extension"
+                          "name",
+                          "extension"
                         ]
                       }
                     ]
@@ -87,8 +87,8 @@
                         "property": [
                           "uuid",
                           "#class",
-                          "extension",
-                          "file_extension"
+                          "name",
+                          "extension"
                         ]
                       }
                     ]
@@ -100,8 +100,8 @@
                         "property": [
                           "uuid",
                           "#class",
-                          "extension",
-                          "file_extension"
+                          "name",
+                          "extension"
                         ]
                       }
                     ]
@@ -113,8 +113,8 @@
                         "property": [
                           "uuid",
                           "#class",
-                          "extension",
-                          "file_extension"
+                          "name",
+                          "extension"
                         ]
                       }
                     ]
@@ -126,8 +126,8 @@
                         "property": [
                           "uuid",
                           "#class",
-                          "extension",
-                          "file_extension"
+                          "name",
+                          "extension"
                         ]
                       }
                     ]
@@ -139,8 +139,8 @@
                         "property": [
                           "uuid",
                           "#class",
-                          "extension",
-                          "file_extension"
+                          "name",
+                          "extension"
                         ]
                       }
                     ]
