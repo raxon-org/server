@@ -264,8 +264,13 @@ trait Setup {
                 }
             }
             if(!$is_found){
-                echo Cli::error('Extension ' . $extension->getName() . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
-                echo Core::binary($object) . ' raxon/server content-type create -extension=' . $extension->getName() . ' -content_type=...'  .  PHP_EOL;
+                if(is_array($extension)){
+                    trace();
+                    dd($extension);
+                } else {
+                    echo Cli::error('Extension ' . $extension->getName() . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
+                    echo Core::binary($object) . ' raxon/server content-type create -extension=' . $extension->getName() . ' -content_type=...'  .  PHP_EOL;
+                }
             } else {
                 $is_found = false;
             }
