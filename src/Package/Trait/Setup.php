@@ -216,6 +216,15 @@ trait Setup {
     {
         $object = $this->object();
         foreach($extension_list as $nr => $extension){
+            if(
+                is_array($extension) &&
+                array_key_exists('node', $extension) &&
+                is_object($extension['node']) &&
+                property_exists($extension['node'], '#class') &&
+                $extension['node']->{'#class'} === 'System.Server.Extension'
+            ){
+                $extension = (object) $extension['node'];
+            }
             $is_found = false;
             foreach($content_type_list as $content_type){
                 if(
