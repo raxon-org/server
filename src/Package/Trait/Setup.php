@@ -223,6 +223,7 @@ trait Setup {
                     array_key_exists('node', $content_type) &&
                     is_object($content_type['node']) &&
                     property_exists($content_type['node'], 'extension') &&
+                    is_object($extension) &&
                     property_exists($extension, 'name') &&
                     $extension->name === $content_type['node']->extension
                 ){
@@ -234,6 +235,8 @@ trait Setup {
                     array_key_exists('node', $content_type) &&
                     is_object($content_type['node']) &&
                     property_exists($content_type['node'], 'extension') &&
+                    is_object($extension) &&
+                    method_exists($extension, 'getName') &&
                     $extension->getName() === $content_type['node']->extension
                 ){
                     $is_found = true;
@@ -242,6 +245,8 @@ trait Setup {
                 elseif(
                     is_object($extension) &&
                     property_exists($extension, 'name') &&
+                    is_object($content_type) &&
+                    property_exists($content_type, 'extension') &&
                     $extension->name === $content_type->extension
                 ){
                     $is_found = true;
@@ -251,6 +256,7 @@ trait Setup {
                     is_object($content_type) &&
                     is_object($extension) &&
                     method_exists($extension, 'getName') &&
+                    property_exists($content_type, 'extension') &&
                     $extension->getName() === $content_type->extension
                 ){
                     $is_found = true;
@@ -267,18 +273,12 @@ trait Setup {
         $is_found = false;
         foreach($content_type_list as $nr => $content_type){
             foreach($extension_list as $extension){
-                if(is_array($extension) && is_array($content_type)){
-                    d($content_type);
-                    ddd($extension);
-                }
-                if(is_array($extension)){
-                    dd($extension);
-                }
-                elseif(
+                if(
                     is_array($content_type) &&
                     array_key_exists('node', $content_type) &&
                     is_object($content_type['node']) &&
                     property_exists($content_type['node'], 'extension') &&
+                    is_object($extension) &&
                     property_exists($extension, 'name') &&
                     $extension->name === $content_type['node']->extension
                 ){
@@ -290,19 +290,16 @@ trait Setup {
                     array_key_exists('node', $content_type) &&
                     is_object($content_type['node']) &&
                     property_exists($content_type['node'], 'extension') &&
+                    is_object($extension) &&
+                    method_exists($extension, 'getName') &&
                     $content_type['node']->extension === $extension->getName()
                 ){
                     $is_found = true;
                     break;
                 }
                 elseif(
-                    is_array($content_type) &&
-                    !array_key_exists('node', $content_type)
-                ){
-                    dd($content_type);
-                }
-                elseif(
                     is_object($content_type) &&
+                    property_exists($content_type, 'extension') &&
                     is_object($extension) &&
                     property_exists($extension, 'name') &&
                     $content_type->extension === $extension->name
@@ -312,6 +309,7 @@ trait Setup {
                 }
                 elseif(
                     is_object($content_type) &&
+                    property_exists($content_type, 'extension') &&
                     is_object($extension) &&
                     method_exists($extension, 'getName') &&
                     $content_type->extension === $extension->getName()
