@@ -218,14 +218,7 @@ trait Setup {
         foreach($extension_list as $nr => $extension){
             $is_found = false;
             foreach($content_type_list as $content_type){
-                if(is_array($extension) && is_array($content_type)){
-                    d($content_type);
-                    dd($extension);
-                }
-                elseif(is_array($extension)){
-                    dd($extension);
-                }
-                elseif(
+                if(
                     is_array($content_type) &&
                     array_key_exists('node', $content_type) &&
                     is_object($content_type['node']) &&
@@ -245,12 +238,6 @@ trait Setup {
                 ){
                     $is_found = true;
                     break;
-                }
-                elseif(
-                    is_array($content_type) &&
-                    !array_key_exists('node', $content_type)
-                ){
-                    dd($content_type);
                 }
                 elseif(
                     is_object($extension) &&
