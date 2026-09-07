@@ -1,7 +1,6 @@
 <?php
 namespace Package\Raxon\Server\Trait;
 
-use Entity\Extension;
 use Exception;
 use Package\Raxon\Account\Module\Permission;
 use Raxon\App;
@@ -10,7 +9,6 @@ use Raxon\Exception\ObjectException;
 use Raxon\Module\Cli;
 use Raxon\Module\Core;
 use Raxon\Module\Data;
-use Raxon\Doctrine\Module\Database;
 use Raxon\Module\Dir;
 use Raxon\Module\Event;
 use Raxon\Module\File;
