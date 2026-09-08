@@ -216,7 +216,9 @@ trait Setup {
     public function extension_content_type_cross_reference($content_type_list, $extension_list): void
     {
         $object = $this->object();
-        //make binary_search_cross_reference
+        /*
+         * make binary_search_cross_reference
+         */
         foreach($extension_list as $nr => $extension){
             if(
                 is_array($extension) &&
