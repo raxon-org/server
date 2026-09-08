@@ -217,7 +217,7 @@ trait Setup {
     {
         $object = $this->object();
         /*
-         * make binary_search_cross_reference
+         * make binary_search_cross_reference !
          */
         foreach($extension_list as $nr => $extension){
             if(
