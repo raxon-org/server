@@ -213,6 +213,8 @@ trait Setup {
     public function extension_content_type_cross_reference($content_type_list, $extension_list): void
     {
         $object = $this->object();
+        d($content_type_list);
+        dd($extension_list);
         foreach($extension_list as $nr => $extension){
             if(
                 is_array($extension) &&
@@ -271,13 +273,8 @@ trait Setup {
                 }
             }
             if(!$is_found){
-                if(is_array($extension)){
-                    trace();
-                    dd($extension);
-                } else {
-                    echo Cli::error('Extension ' . $extension->getName() . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
-                    echo Core::binary($object) . ' raxon/server content-type create -extension=' . $extension->getName() . ' -content_type=...'  .  PHP_EOL;
-                }
+                echo Cli::error('Extension ' . $extension->getName() . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
+                echo Core::binary($object) . ' raxon/server extension create -name=' . $extension->getName() . ' -extension=...'  .  PHP_EOL;
             } else {
                 $is_found = false;
             }
@@ -606,41 +603,43 @@ trait Setup {
     public function extension_list_import_node($flags, $options): array
     {
         $object = $this->object();
-        $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'));
+        $url = $object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json');
+        $extension_list = $object->data_read($url);
         $list = [];
-        if($extension_list){
-            $class = 'System.Server.Extension';
-            foreach($extension_list->data('System.Server.Extension') as $extension => $file_extension){
-                $node = new Node($object);
-                $record = $node->record($class, $node->role_system(), [
-                    'where' => [
-                        [
-                            'attribute' => 'name',
-                            'operator' => '===',
-                            'value' => $extension,
-                        ]
+        if(!$extension_list){
+            throw new Exception('Extension list not found, url: ' . $url);;
+        }
+        $class = 'System.Server.Extension';
+        foreach($extension_list->data('System.Server.Extension') as $extension => $file_extension){
+            $node = new Node($object);
+            $record = $node->record($class, $node->role_system(), [
+                'where' => [
+                    [
+                        'attribute' => 'name',
+                        'operator' => '===',
+                        'value' => $extension,
                     ]
-                ]);
-                $record = $record['node'] ?? null;
-                if(!$record){
-                    $record = (object) [
-                        'name' => $extension,
-                        'extension' => $file_extension,
-                    ];
-                    $record = $node->create($class, $node->role_system(), $record);
-                }
-                elseif(
-                    property_exists($record, 'extension' &&
-                        $record->extension !== $file_extension
-                    )
-                ){
-                    $record->extension = $file_extension;
-                    $record = $node->patch($class, $node->role_system(), $record);
-                } else {
-                    //do nothing
-                }
-                $list[] = $record;
+                ]
+            ]);
+            $record = $record['node'] ?? null;
+            if(!$record){
+                $record = (object) [
+                    'name' => $extension,
+                    'extension' => $file_extension,
+                ];
+                $record = $node->create($class, $node->role_system(), $record);
             }
+            elseif(
+                property_exists($record, 'extension' &&
+                    $record->extension !== $file_extension
+                )
+            ){
+                $record->extension = $file_extension;
+                $record = $node->patch($class, $node->role_system(), $record);
+            } else {
+                //do nothing
+            }
+            $list[] = $record;
         }
         return $list;
     }
@@ -656,37 +655,39 @@ trait Setup {
     public function content_type_list_import_node($flags, $options): array
     {
         $object = $this->object();
-        $extension_list = $object->data_read($object->config('controller.dir.data') . 'System.Server.ContentType' . $object->config('extension.json'));
+        $url = $object->config('controller.dir.data') . 'System.Server.ContentType' . $object->config('extension.json');
+        $content_type_list = $object->data_read($url);
         $list = [];
-        if($extension_list){
-            $class = 'System.Server.ContentType';
-            foreach($extension_list->data('System.Server.ContentType') as $extension => $content_type){
-                $node = new Node($object);
-                $record = $node->record($class, $node->role_system(), [
-                    'where' => [
-                        [
-                            'attribute' => 'extension',
-                            'operator' => '===',
-                            'value' => $extension,
-                        ]
+        if(!$content_type_list){
+            throw new Exception('Content type list not found, url: ' . $url);
+        }
+        $class = 'System.Server.ContentType';
+        foreach($content_type_list->data('System.Server.ContentType') as $extension => $content_type){
+            $node = new Node($object);
+            $record = $node->record($class, $node->role_system(), [
+                'where' => [
+                    [
+                        'attribute' => 'extension',
+                        'operator' => '===',
+                        'value' => $extension,
                     ]
-                ]);
-                $record = $record['node'] ?? null;
-                if(!$record){
-                    $record = (object) [
-                        'extension' => $extension,
-                        'content_type' => $content_type,
-                    ];
-                    $record = $node->create($class, $node->role_system(), $record);
-                }
-                elseif($record->content_type !== $content_type){
-                    $record->content_type = $content_type;
-                    $record = $node->patch($class, $node->role_system(), $record);
-                } else {
-                    //do nothing
-                }
-                $list[] = $record;
+                ]
+            ]);
+            $record = $record['node'] ?? null;
+            if(!$record){
+                $record = (object) [
+                    'extension' => $extension,
+                    'content_type' => $content_type,
+                ];
+                $record = $node->create($class, $node->role_system(), $record);
             }
+            elseif($record->content_type !== $content_type){
+                $record->content_type = $content_type;
+                $record = $node->patch($class, $node->role_system(), $record);
+            } else {
+                //do nothing
+            }
+            $list[] = $record;
         }
         return $list;
     }
