@@ -216,7 +216,7 @@ trait Setup {
     public function extension_content_type_cross_reference($content_type_list, $extension_list): void
     {
         $object = $this->object();
-        //make binary_search
+        //make binary_search_cross_reference
         foreach($extension_list as $nr => $extension){
             if(
                 is_array($extension) &&
@@ -263,18 +263,6 @@ trait Setup {
                     $is_found = true;
                     break;
                 }
-                /*
-                elseif(
-                    is_object($content_type) &&
-                    is_object($extension) &&
-                    method_exists($extension, 'getName') &&
-                    property_exists($content_type, 'extension') &&
-                    $extension->getName() === $content_type->extension
-                ){
-                    $is_found = true;
-                    break;
-                }
-                */
             }
             if(!$is_found){
                 echo Cli::error('Extension ' . $extension->name . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
