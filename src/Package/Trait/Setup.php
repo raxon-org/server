@@ -210,11 +210,13 @@ trait Setup {
         throw $exception;
     }
 
+    /**
+     * @throws Exception
+     */
     public function extension_content_type_cross_reference($content_type_list, $extension_list): void
     {
         $object = $this->object();
-        d($content_type_list);
-        dd($extension_list);
+        //make binary_search
         foreach($extension_list as $nr => $extension){
             if(
                 is_array($extension) &&
@@ -261,6 +263,7 @@ trait Setup {
                     $is_found = true;
                     break;
                 }
+                /*
                 elseif(
                     is_object($content_type) &&
                     is_object($extension) &&
@@ -271,10 +274,11 @@ trait Setup {
                     $is_found = true;
                     break;
                 }
+                */
             }
             if(!$is_found){
-                echo Cli::error('Extension ' . $extension->getName() . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
-                echo Core::binary($object) . ' raxon/server extension create -name=' . $extension->getName() . ' -extension=...'  .  PHP_EOL;
+                echo Cli::error('Extension ' . $extension->name . ' not found in the "content-type list", please add it manually.') . PHP_EOL;
+                echo Core::binary($object) . ' raxon/server extension create -name=' . $extension->name . ' -extension=...'  .  PHP_EOL;
             } else {
                 $is_found = false;
             }
@@ -312,16 +316,6 @@ trait Setup {
                     is_object($extension) &&
                     property_exists($extension, 'name') &&
                     $content_type->extension === $extension->name
-                ){
-                    $is_found = true;
-                    break;
-                }
-                elseif(
-                    is_object($content_type) &&
-                    property_exists($content_type, 'extension') &&
-                    is_object($extension) &&
-                    method_exists($extension, 'getName') &&
-                    $content_type->extension === $extension->getName()
                 ){
                     $is_found = true;
                     break;
