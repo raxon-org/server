@@ -68,6 +68,10 @@ trait Setup {
         if(strstr($options['public'], '/') === false){
             $options['public'] = $object->config('project.dir.root') . $options['public'] . $object->config('ds');
         }
+        $options->url = (object) [
+            'extension' => $object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'),
+            'content_type' => $url = $object->config('controller.dir.data') . 'System.Server.ContentType' . $object->config('extension.json')
+        ];
         $destination = $options['public'];
         Dir::create($destination, Dir::CHMOD);
         $source = $object->config('controller.dir.data') . '.htaccess';
@@ -587,11 +591,16 @@ trait Setup {
     public function extension_list_import_node($flags, $options): array
     {
         $object = $this->object();
-        $url = $object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json');
-        $extension_list = $object->data_read($url);
+        if(!property_exists($options, 'url')){
+            throw new Exception('No option url given...');
+        }
+        if(!property_exists($options->url, 'extension')){
+            throw new Exception('No option url.extension given...');
+        }
+        $extension_list = $object->data_read($options->url->extension);;
         $list = [];
         if(!$extension_list){
-            throw new Exception('Extension list not found, url: ' . $url);;
+            throw new Exception('Extension list not found, url: ' . $options->url->extension);
         }
         $class = 'System.Server.Extension';
         foreach($extension_list->data('System.Server.Extension') as $extension => $file_extension){
@@ -639,11 +648,16 @@ trait Setup {
     public function content_type_list_import_node($flags, $options): array
     {
         $object = $this->object();
-        $url = $object->config('controller.dir.data') . 'System.Server.ContentType' . $object->config('extension.json');
-        $content_type_list = $object->data_read($url);
+        if(!property_exists($options, 'url')){
+            throw new Exception('No option url given...');
+        }
+        if(!property_exists($options->url, 'content_type')){
+            throw new Exception('No option url.content_type given...');
+        }
+        $content_type_list = $object->data_read($options->url->content_type);;
         $list = [];
         if(!$content_type_list){
-            throw new Exception('Content type list not found, url: ' . $url);
+            throw new Exception('Content type list not found, url: ' . $options->url->content_type);
         }
         $class = 'System.Server.ContentType';
         foreach($content_type_list->data('System.Server.ContentType') as $extension => $content_type){
