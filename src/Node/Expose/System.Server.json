@@ -73,562 +73,702 @@
             },
             "page": {
                 "output": [
-                    {
-                        "role": "ROLE_SYSTEM",
-                        "property": [
-                            "uuid",
-                            "#class",
-                            "admin",
-                            "email",
-                            "site",
-                            "http",
-                            "url",
-                            "cors",
-                            "directory_public",
-                            "public",
-                            "extension",
-                            "contentType"
+                  {
+                    "role": "ROLE_SYSTEM",
+                    "property": [
+                      "uuid",
+                      "#class",
+                      "admin",
+                      "email",
+                      "site",
+                      "http",
+                      "url",
+                      "cors",
+                      "directory_public",
+                      "public",
+                      "extension",
+                      "contentType"
+                    ],
+                    "object": {
+                      "email": {
+                        "multiple": false,
+                        "output": [
+                          "to",
+                          "cc",
+                          "bcc",
+                          "replyTo"
+                        ]
+                      },
+                      "site": {
+                        "multiple": false,
+                        "output": [
+                          "disabled"
+                        ]
+                      },
+                      "http": {
+                        "multiple": false,
+                        "output": [
+                          "upgrade_insecure",
+                          "cookie"
                         ],
                         "object": {
-                            "email": {
-                                "multiple": false,
-                                "output": [
-                                    "to",
-                                    "cc",
-                                    "bcc",
-                                    "replyTo"
-                                ]
-                            },
-                            "site": {
-                                "multiple": false,
-                                "output": [
-                                    "disabled"
-                                ]
-                            },
-                            "http": {
-                                "multiple": false,
-                                "output": [
-                                    "upgrade_insecure",
-                                    "cookie"
-                                ],
-                                "object": {
-                                    "cookie": {
-                                        "multiple" : false,
-                                        "output": [
-                                            "path",
-                                            "domain",
-                                            "httponly",
-                                            "samesite"
-                                        ]
-                                    }
-                                }
-                            }
+                          "cookie": {
+                            "multiple" : false,
+                            "output": [
+                              "path",
+                              "domain",
+                              "httponly",
+                              "samesite"
+                            ]
+                          }
                         }
+                      },
+                      "extension": {
+                        "multiple": true,
+                        "output": [
+                          "name",
+                          "extension"
+                        ]
+                      },
+                      "contentType": {
+                        "multiple": true,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
                     }
+                  }
                 ]
             },
             "list": {
                 "output": [
-                    {
-                        "role": "ROLE_SYSTEM",
-                        "property": [
-                            "uuid",
-                            "#class",
-                            "admin",
-                            "email",
-                            "site",
-                            "http",
-                            "url",
-                            "cors",
-                            "directory_public",
-                            "public",
-                            "extension",
-                            "contentType"
+                  {
+                    "role": "ROLE_SYSTEM",
+                    "property": [
+                      "uuid",
+                      "#class",
+                      "admin",
+                      "email",
+                      "site",
+                      "http",
+                      "url",
+                      "cors",
+                      "directory_public",
+                      "public",
+                      "extension",
+                      "contentType"
+                    ],
+                    "object": {
+                      "email": {
+                        "multiple": false,
+                        "output": [
+                          "to",
+                          "cc",
+                          "bcc",
+                          "replyTo"
+                        ]
+                      },
+                      "site": {
+                        "multiple": false,
+                        "output": [
+                          "disabled"
+                        ]
+                      },
+                      "http": {
+                        "multiple": false,
+                        "output": [
+                          "upgrade_insecure",
+                          "cookie"
                         ],
                         "object": {
-                            "email": {
-                                "multiple": false,
-                                "output": [
-                                    "to",
-                                    "cc",
-                                    "bcc",
-                                    "replyTo"
-                                ]
-                            },
-                            "site": {
-                                "multiple": false,
-                                "output": [
-                                    "disabled"
-                                ]
-                            },
-                            "http": {
-                                "multiple": false,
-                                "output": [
-                                    "upgrade_insecure",
-                                    "cookie"
-                                ],
-                                "object": {
-                                    "cookie": {
-                                        "multiple" : false,
-                                        "output": [
-                                            "path",
-                                            "domain",
-                                            "httponly",
-                                            "samesite"
-                                        ]
-                                    }
-                                }
-                            }
+                          "cookie": {
+                            "multiple" : false,
+                            "output": [
+                              "path",
+                              "domain",
+                              "httponly",
+                              "samesite"
+                            ]
+                          }
                         }
+                      },
+                      "extension": {
+                        "multiple": true,
+                        "output": [
+                          "name",
+                          "extension"
+                        ]
+                      },
+                      "contentType": {
+                        "multiple": true,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
                     }
+                  }
                 ]
             },
             "read": {
                 "output": [
-                    {
-                        "role": "ROLE_SYSTEM",
-                        "property": [
-                            "uuid",
-                            "#class",
-                            "admin",
-                            "email",
-                            "site",
-                            "http",
-                            "url",
-                            "cors",
-                            "directory_public",
-                            "public",
-                            "extension",
-                            "contentType"
+                  {
+                    "role": "ROLE_SYSTEM",
+                    "property": [
+                      "uuid",
+                      "#class",
+                      "admin",
+                      "email",
+                      "site",
+                      "http",
+                      "url",
+                      "cors",
+                      "directory_public",
+                      "public",
+                      "extension",
+                      "contentType"
+                    ],
+                    "object": {
+                      "email": {
+                        "multiple": false,
+                        "output": [
+                          "to",
+                          "cc",
+                          "bcc",
+                          "replyTo"
+                        ]
+                      },
+                      "site": {
+                        "multiple": false,
+                        "output": [
+                          "disabled"
+                        ]
+                      },
+                      "http": {
+                        "multiple": false,
+                        "output": [
+                          "upgrade_insecure",
+                          "cookie"
                         ],
                         "object": {
-                            "email": {
-                                "multiple": false,
-                                "output": [
-                                    "to",
-                                    "cc",
-                                    "bcc",
-                                    "replyTo"
-                                ]
-                            },
-                            "site": {
-                                "multiple": false,
-                                "output": [
-                                    "disabled"
-                                ]
-                            },
-                            "http": {
-                                "multiple": false,
-                                "output": [
-                                    "upgrade_insecure",
-                                    "cookie"
-                                ],
-                                "object": {
-                                    "cookie": {
-                                        "multiple" : false,
-                                        "output": [
-                                            "path",
-                                            "domain",
-                                            "httponly",
-                                            "samesite"
-                                        ]
-                                    }
-                                }
-                            }
+                          "cookie": {
+                            "multiple" : false,
+                            "output": [
+                              "path",
+                              "domain",
+                              "httponly",
+                              "samesite"
+                            ]
+                          }
                         }
+                      },
+                      "extension": {
+                        "multiple": true,
+                        "output": [
+                          "name",
+                          "extension"
+                        ]
+                      },
+                      "contentType": {
+                        "multiple": true,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
                     }
+                  }
                 ]
             },
             "record": {
                 "output": [
-                    {
-                        "role": "ROLE_SYSTEM",
-                        "property": [
-                            "uuid",
-                            "#class",
-                            "admin",
-                            "email",
-                            "site",
-                            "http",
-                            "url",
-                            "cors",
-                            "directory_public",
-                            "public",
-                            "extension",
-                            "contentType"
+                  {
+                    "role": "ROLE_SYSTEM",
+                    "property": [
+                      "uuid",
+                      "#class",
+                      "admin",
+                      "email",
+                      "site",
+                      "http",
+                      "url",
+                      "cors",
+                      "directory_public",
+                      "public",
+                      "extension",
+                      "contentType"
+                    ],
+                    "object": {
+                      "email": {
+                        "multiple": false,
+                        "output": [
+                          "to",
+                          "cc",
+                          "bcc",
+                          "replyTo"
+                        ]
+                      },
+                      "site": {
+                        "multiple": false,
+                        "output": [
+                          "disabled"
+                        ]
+                      },
+                      "http": {
+                        "multiple": false,
+                        "output": [
+                          "upgrade_insecure",
+                          "cookie"
                         ],
                         "object": {
-                            "email": {
-                                "multiple": false,
-                                "output": [
-                                    "to",
-                                    "cc",
-                                    "bcc",
-                                    "replyTo"
-                                ]
-                            },
-                            "site": {
-                                "multiple": false,
-                                "output": [
-                                    "disabled"
-                                ]
-                            },
-                            "http": {
-                                "multiple": false,
-                                "output": [
-                                    "upgrade_insecure",
-                                    "cookie"
-                                ],
-                                "object": {
-                                    "cookie": {
-                                        "multiple" : false,
-                                        "output": [
-                                            "path",
-                                            "domain",
-                                            "httponly",
-                                            "samesite"
-                                        ]
-                                    }
-                                }
-                            }
+                          "cookie": {
+                            "multiple" : false,
+                            "output": [
+                              "path",
+                              "domain",
+                              "httponly",
+                              "samesite"
+                            ]
+                          }
                         }
+                      },
+                      "extension": {
+                        "multiple": true,
+                        "output": [
+                          "name",
+                          "extension"
+                        ]
+                      },
+                      "contentType": {
+                        "multiple": true,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
                     }
+                  }
                 ]
             },
             "create": {
                 "output": [
-                    {
-                        "role": "ROLE_SYSTEM",
-                        "property": [
-                            "uuid",
-                            "#class",
-                            "admin",
-                            "email",
-                            "site",
-                            "http",
-                            "url",
-                            "cors",
-                            "directory_public",
-                            "public",
-                            "extension",
-                            "contentType"
+                  {
+                    "role": "ROLE_SYSTEM",
+                    "property": [
+                      "uuid",
+                      "#class",
+                      "admin",
+                      "email",
+                      "site",
+                      "http",
+                      "url",
+                      "cors",
+                      "directory_public",
+                      "public",
+                      "extension",
+                      "contentType"
+                    ],
+                    "object": {
+                      "email": {
+                        "multiple": false,
+                        "output": [
+                          "to",
+                          "cc",
+                          "bcc",
+                          "replyTo"
+                        ]
+                      },
+                      "site": {
+                        "multiple": false,
+                        "output": [
+                          "disabled"
+                        ]
+                      },
+                      "http": {
+                        "multiple": false,
+                        "output": [
+                          "upgrade_insecure",
+                          "cookie"
                         ],
                         "object": {
-                            "email": {
-                                "multiple": false,
-                                "output": [
-                                    "to",
-                                    "cc",
-                                    "bcc",
-                                    "replyTo"
-                                ]
-                            },
-                            "site": {
-                                "multiple": false,
-                                "output": [
-                                    "disabled"
-                                ]
-                            },
-                            "http": {
-                                "multiple": false,
-                                "output": [
-                                    "upgrade_insecure",
-                                    "cookie"
-                                ],
-                                "object": {
-                                    "cookie": {
-                                        "multiple" : false,
-                                        "output": [
-                                            "path",
-                                            "domain",
-                                            "httponly",
-                                            "samesite"
-                                        ]
-                                    }
-                                }
-                            }
+                          "cookie": {
+                            "multiple" : false,
+                            "output": [
+                              "path",
+                              "domain",
+                              "httponly",
+                              "samesite"
+                            ]
+                          }
                         }
+                      },
+                      "extension": {
+                        "multiple": true,
+                        "output": [
+                          "name",
+                          "extension"
+                        ]
+                      },
+                      "contentType": {
+                        "multiple": true,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
                     }
+                  }
                 ]
             },
             "create_many": {
                 "output": [
-                    {
-                        "role": "ROLE_SYSTEM",
-                        "property": [
-                            "uuid",
-                            "#class",
-                            "admin",
-                            "email",
-                            "site",
-                            "http",
-                            "url",
-                            "cors",
-                            "directory_public",
-                            "public",
-                            "extension",
-                            "contentType"
+                  {
+                    "role": "ROLE_SYSTEM",
+                    "property": [
+                      "uuid",
+                      "#class",
+                      "admin",
+                      "email",
+                      "site",
+                      "http",
+                      "url",
+                      "cors",
+                      "directory_public",
+                      "public",
+                      "extension",
+                      "contentType"
+                    ],
+                    "object": {
+                      "email": {
+                        "multiple": false,
+                        "output": [
+                          "to",
+                          "cc",
+                          "bcc",
+                          "replyTo"
+                        ]
+                      },
+                      "site": {
+                        "multiple": false,
+                        "output": [
+                          "disabled"
+                        ]
+                      },
+                      "http": {
+                        "multiple": false,
+                        "output": [
+                          "upgrade_insecure",
+                          "cookie"
                         ],
                         "object": {
-                            "email": {
-                                "multiple": false,
-                                "output": [
-                                    "to",
-                                    "cc",
-                                    "bcc",
-                                    "replyTo"
-                                ]
-                            },
-                            "site": {
-                                "multiple": false,
-                                "output": [
-                                    "disabled"
-                                ]
-                            },
-                            "http": {
-                                "multiple": false,
-                                "output": [
-                                    "upgrade_insecure",
-                                    "cookie"
-                                ],
-                                "object": {
-                                    "cookie": {
-                                        "multiple" : false,
-                                        "output": [
-                                            "path",
-                                            "domain",
-                                            "httponly",
-                                            "samesite"
-                                        ]
-                                    }
-                                }
-                            }
+                          "cookie": {
+                            "multiple" : false,
+                            "output": [
+                              "path",
+                              "domain",
+                              "httponly",
+                              "samesite"
+                            ]
+                          }
                         }
+                      },
+                      "extension": {
+                        "multiple": true,
+                        "output": [
+                          "name",
+                          "extension"
+                        ]
+                      },
+                      "contentType": {
+                        "multiple": true,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
                     }
+                  }
                 ]
             },
             "put": {
                 "output": [
-                    {
-                        "role": "ROLE_SYSTEM",
-                        "property": [
-                            "uuid",
-                            "#class",
-                            "admin",
-                            "email",
-                            "site",
-                            "http",
-                            "url",
-                            "cors",
-                            "directory_public",
-                            "public",
-                            "extension",
-                            "contentType"
+                  {
+                    "role": "ROLE_SYSTEM",
+                    "property": [
+                      "uuid",
+                      "#class",
+                      "admin",
+                      "email",
+                      "site",
+                      "http",
+                      "url",
+                      "cors",
+                      "directory_public",
+                      "public",
+                      "extension",
+                      "contentType"
+                    ],
+                    "object": {
+                      "email": {
+                        "multiple": false,
+                        "output": [
+                          "to",
+                          "cc",
+                          "bcc",
+                          "replyTo"
+                        ]
+                      },
+                      "site": {
+                        "multiple": false,
+                        "output": [
+                          "disabled"
+                        ]
+                      },
+                      "http": {
+                        "multiple": false,
+                        "output": [
+                          "upgrade_insecure",
+                          "cookie"
                         ],
                         "object": {
-                            "email": {
-                                "multiple": false,
-                                "output": [
-                                    "to",
-                                    "cc",
-                                    "bcc",
-                                    "replyTo"
-                                ]
-                            },
-                            "site": {
-                                "multiple": false,
-                                "output": [
-                                    "disabled"
-                                ]
-                            },
-                            "http": {
-                                "multiple": false,
-                                "output": [
-                                    "upgrade_insecure",
-                                    "cookie"
-                                ],
-                                "object": {
-                                    "cookie": {
-                                        "multiple" : false,
-                                        "output": [
-                                            "path",
-                                            "domain",
-                                            "httponly",
-                                            "samesite"
-                                        ]
-                                    }
-                                }
-                            }
+                          "cookie": {
+                            "multiple" : false,
+                            "output": [
+                              "path",
+                              "domain",
+                              "httponly",
+                              "samesite"
+                            ]
+                          }
                         }
+                      },
+                      "extension": {
+                        "multiple": true,
+                        "output": [
+                          "name",
+                          "extension"
+                        ]
+                      },
+                      "contentType": {
+                        "multiple": true,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
                     }
+                  }
                 ]
             },
             "put_many": {
                 "output": [
-                    {
-                        "role": "ROLE_SYSTEM",
-                        "property": [
-                            "uuid",
-                            "#class",
-                            "admin",
-                            "email",
-                            "site",
-                            "http",
-                            "url",
-                            "cors",
-                            "directory_public",
-                            "public",
-                            "extension",
-                            "contentType"
+                  {
+                    "role": "ROLE_SYSTEM",
+                    "property": [
+                      "uuid",
+                      "#class",
+                      "admin",
+                      "email",
+                      "site",
+                      "http",
+                      "url",
+                      "cors",
+                      "directory_public",
+                      "public",
+                      "extension",
+                      "contentType"
+                    ],
+                    "object": {
+                      "email": {
+                        "multiple": false,
+                        "output": [
+                          "to",
+                          "cc",
+                          "bcc",
+                          "replyTo"
+                        ]
+                      },
+                      "site": {
+                        "multiple": false,
+                        "output": [
+                          "disabled"
+                        ]
+                      },
+                      "http": {
+                        "multiple": false,
+                        "output": [
+                          "upgrade_insecure",
+                          "cookie"
                         ],
                         "object": {
-                            "email": {
-                                "multiple": false,
-                                "output": [
-                                    "to",
-                                    "cc",
-                                    "bcc",
-                                    "replyTo"
-                                ]
-                            },
-                            "site": {
-                                "multiple": false,
-                                "output": [
-                                    "disabled"
-                                ]
-                            },
-                            "http": {
-                                "multiple": false,
-                                "output": [
-                                    "upgrade_insecure",
-                                    "cookie"
-                                ],
-                                "object": {
-                                    "cookie": {
-                                        "multiple" : false,
-                                        "output": [
-                                            "path",
-                                            "domain",
-                                            "httponly",
-                                            "samesite"
-                                        ]
-                                    }
-                                }
-                            }
+                          "cookie": {
+                            "multiple" : false,
+                            "output": [
+                              "path",
+                              "domain",
+                              "httponly",
+                              "samesite"
+                            ]
+                          }
                         }
+                      },
+                      "extension": {
+                        "multiple": true,
+                        "output": [
+                          "name",
+                          "extension"
+                        ]
+                      },
+                      "contentType": {
+                        "multiple": true,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
                     }
+                  }
                 ]
             },
             "patch": {
                 "output": [
-                    {
-                        "role": "ROLE_SYSTEM",
-                        "property": [
-                            "uuid",
-                            "#class",
-                            "admin",
-                            "email",
-                            "site",
-                            "http",
-                            "url",
-                            "cors",
-                            "directory_public",
-                            "public",
-                            "extension",
-                            "contentType"
+                  {
+                    "role": "ROLE_SYSTEM",
+                    "property": [
+                      "uuid",
+                      "#class",
+                      "admin",
+                      "email",
+                      "site",
+                      "http",
+                      "url",
+                      "cors",
+                      "directory_public",
+                      "public",
+                      "extension",
+                      "contentType"
+                    ],
+                    "object": {
+                      "email": {
+                        "multiple": false,
+                        "output": [
+                          "to",
+                          "cc",
+                          "bcc",
+                          "replyTo"
+                        ]
+                      },
+                      "site": {
+                        "multiple": false,
+                        "output": [
+                          "disabled"
+                        ]
+                      },
+                      "http": {
+                        "multiple": false,
+                        "output": [
+                          "upgrade_insecure",
+                          "cookie"
                         ],
                         "object": {
-                            "email": {
-                                "multiple": false,
-                                "output": [
-                                    "to",
-                                    "cc",
-                                    "bcc",
-                                    "replyTo"
-                                ]
-                            },
-                            "site": {
-                                "multiple": false,
-                                "output": [
-                                    "disabled"
-                                ]
-                            },
-                            "http": {
-                                "multiple": false,
-                                "output": [
-                                    "upgrade_insecure",
-                                    "cookie"
-                                ],
-                                "object": {
-                                    "cookie": {
-                                        "multiple" : false,
-                                        "output": [
-                                            "path",
-                                            "domain",
-                                            "httponly",
-                                            "samesite"
-                                        ]
-                                    }
-                                }
-                            }
+                          "cookie": {
+                            "multiple" : false,
+                            "output": [
+                              "path",
+                              "domain",
+                              "httponly",
+                              "samesite"
+                            ]
+                          }
                         }
+                      },
+                      "extension": {
+                        "multiple": true,
+                        "output": [
+                          "name",
+                          "extension"
+                        ]
+                      },
+                      "contentType": {
+                        "multiple": true,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
                     }
+                  }
                 ]
             },
             "patch_many": {
                 "output": [
-                    {
-                        "role": "ROLE_SYSTEM",
-                        "property": [
-                            "uuid",
-                            "#class",
-                            "admin",
-                            "email",
-                            "site",
-                            "http",
-                            "url",
-                            "cors",
-                            "directory_public",
-                            "public",
-                            "extension",
-                            "contentType"
+                  {
+                    "role": "ROLE_SYSTEM",
+                    "property": [
+                      "uuid",
+                      "#class",
+                      "admin",
+                      "email",
+                      "site",
+                      "http",
+                      "url",
+                      "cors",
+                      "directory_public",
+                      "public",
+                      "extension",
+                      "contentType"
+                    ],
+                    "object": {
+                      "email": {
+                        "multiple": false,
+                        "output": [
+                          "to",
+                          "cc",
+                          "bcc",
+                          "replyTo"
+                        ]
+                      },
+                      "site": {
+                        "multiple": false,
+                        "output": [
+                          "disabled"
+                        ]
+                      },
+                      "http": {
+                        "multiple": false,
+                        "output": [
+                          "upgrade_insecure",
+                          "cookie"
                         ],
                         "object": {
-                            "email": {
-                                "multiple": false,
-                                "output": [
-                                    "to",
-                                    "cc",
-                                    "bcc",
-                                    "replyTo"
-                                ]
-                            },
-                            "site": {
-                                "multiple": false,
-                                "output": [
-                                    "disabled"
-                                ]
-                            },
-                            "http": {
-                                "multiple": false,
-                                "output": [
-                                    "upgrade_insecure",
-                                    "cookie"
-                                ],
-                                "object": {
-                                    "cookie": {
-                                        "multiple" : false,
-                                        "output": [
-                                            "path",
-                                            "domain",
-                                            "httponly",
-                                            "samesite"
-                                        ]
-                                    }
-                                }
-                            }
+                          "cookie": {
+                            "multiple" : false,
+                            "output": [
+                              "path",
+                              "domain",
+                              "httponly",
+                              "samesite"
+                            ]
+                          }
                         }
+                      },
+                      "extension": {
+                        "multiple": true,
+                        "output": [
+                          "name",
+                          "extension"
+                        ]
+                      },
+                      "contentType": {
+                        "multiple": true,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
                     }
+                  }
                 ]
             }
         }
