@@ -164,7 +164,6 @@ trait Setup {
 //            $extension_list = $this->extension_list_import_sqlite($flags, $options);
 //            echo 'Imported ' . count($extension_list) . ' extensions in the db' . PHP_EOL;
             $content_type_list = $this->content_type_list_import_node($flags, $options);
-            ddd($extension_list);
             echo 'Imported ' . count($content_type_list) . ' contentTypes' . PHP_EOL;
             $is_found = false;
             $this->extension_content_type_cross_reference($content_type_list, $extension_list);
