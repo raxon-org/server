@@ -56,8 +56,8 @@
                             "extension": {
                                 "multiple": true,
                                 "output": [
-                                  "extension",
-                                  "file_extension"
+                                  "name",
+                                  "extension"
                                 ]
                             },
                             "contentType": {
