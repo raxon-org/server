@@ -71,10 +71,10 @@ trait Setup {
         $destination = $options->public;
         Dir::create($destination, Dir::CHMOD);
         $source = $object->config('controller.dir.data') . '.htaccess';
-        $destination = $options['public'] . '.htaccess';
+        $destination = $options->public . '.htaccess';
         File::copy($source, $destination);
         $source = $object->config('controller.dir.data') . '.user.ini';
-        $destination = $options['public'] . '.user.ini';
+        $destination = $options->public . '.user.ini';
         File::copy($source, $destination);
         $data = new Data($object->data());
         $flags = App::flags($object);
