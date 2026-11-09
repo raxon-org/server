@@ -24,10 +24,9 @@ trait Setup {
      * @throws ObjectException
      * @throws Exception
      */
-    public function public_create($flags, $options): ?string
+    public function public_create(object $flags, object $options): ?string
     {
         $object = $this->object();
-        $options = Core::object($options, Core::OBJECT_ARRAY);
         $id = $object->config(Config::POSIX_ID);
         if(
             !in_array(
@@ -48,10 +47,10 @@ trait Setup {
         }
         $node = new Node($object);
         $class = 'System.Server';
-        if (!array_key_exists('function', $options)) {
-            $options['function'] = __FUNCTION__;
+        if(!property_exists($options, 'function')){
+            $options->function = __FUNCTION__;
         }
-        $options['relation'] = false;
+        $options->relation = false;
         if (!Security::is_granted(
             $class,
             $node->role_system(),
@@ -59,20 +58,17 @@ trait Setup {
         )) {
             return false;
         }
-        if(
-            !array_key_exists('public', $options) ||
-            empty($options['public'])
-        ){
-            $options['public'] = $object->config('project.dir.public');
+        if(!property_exists($options, 'public') || empty($options->public)){
+            $options->public = $object->config('project.dir.public');
         }
-        if(strstr($options['public'], '/') === false){
-            $options['public'] = $object->config('project.dir.root') . $options['public'] . $object->config('ds');
+        if(strstr($options->public, '/') === false){
+            $options->public = $object->config('project.dir.root') . $options->public . $object->config('ds');
         }
         $options->url = (object) [
             'extension' => $object->config('controller.dir.data') . 'System.Server.Extension' . $object->config('extension.json'),
             'content_type' => $url = $object->config('controller.dir.data') . 'System.Server.ContentType' . $object->config('extension.json')
         ];
-        $destination = $options['public'];
+        $destination = $options->public;
         Dir::create($destination, Dir::CHMOD);
         $source = $object->config('controller.dir.data') . '.htaccess';
         $destination = $options['public'] . '.htaccess';
@@ -90,18 +86,18 @@ trait Setup {
         $read = $parse->compile($read, $data);
         File::write($destination, $read);
         $source = $object->config('controller.dir.data') . 'index.php';
-        $destination = $options['public'] . 'index.php';
+        $destination = $options->public . 'index.php';
         File::copy($source, $destination);
         File::permission($object, [
-            'public' => $options['public'],
-            '.htaccess' => $options['public'] . '.htaccess',
-            '.user.ini' => $options['public'] . '.user.ini',
-            'index.php' => $options['public'] . 'index.php',
+            'public' => $options->public,
+            '.htaccess' => $options->public . '.htaccess',
+            '.user.ini' => $options->public . '.user.ini',
+            'index.php' => $options->public . 'index.php',
         ]);
         $response = $node->record($class, $node->role_system());
         if(!$response){
             $record = (object) [
-                'public' => $options['public'],
+                'public' => $options->public,
                 'extension' => '*',
                 'contentType' => '*',
                 '#class' => $class
