@@ -143,7 +143,7 @@ trait Setup {
             $config = $this->system_config($node);
             $record = (object) [
                 'uuid' => $response['node']->uuid,
-                'public' => $options['public'],
+                'public' => $options->public,
                 'extension' => '*',
                 'contentType' => '*',
                 '#class' => $class
